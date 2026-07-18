@@ -135,7 +135,14 @@ export default function App() {
 
         // Generate local blob url
         const objectUrl = URL.createObjectURL(file);
-        newUrls[secId][version] = objectUrl;
+        // IMPORTANT: create a new { A, B } object rather than mutating the
+        // existing one in place. `newUrls` is only a shallow copy of
+        // `audioUrls`, so `newUrls[secId]` is still the SAME object as
+        // `audioUrls[secId]`. Mutating it here would also silently change
+        // the previous render's state, which the cleanup effect below
+        // (keyed on `[audioUrls]`) closes over — causing it to revoke the
+        // blob URL we just created the instant this update commits.
+        newUrls[secId] = { ...newUrls[secId], [version]: objectUrl };
 
         // Size format
         const sizeMb = (file.size / (1024 * 1024)).toFixed(2) + " MB";

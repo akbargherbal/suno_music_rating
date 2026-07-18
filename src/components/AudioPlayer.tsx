@@ -138,7 +138,7 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
                 النسخة {version}
               </span>
               <span className="text-gray-400 text-xs font-mono">
-                {filename.split('.').pop()?.toUpperCase() || "MP3"}
+                {filename.includes('.') ? filename.split('.').pop()!.toUpperCase() : "MP3"}
               </span>
             </div>
             <p className="text-sm font-medium text-white truncate mt-1 text-right dir-rtl font-sans" title={filename}>
