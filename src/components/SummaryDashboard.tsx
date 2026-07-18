@@ -220,7 +220,7 @@ export default function SummaryDashboard({
           <div>
             <span className="text-xs text-ink-soft font-bold">الأقسام المكتملة</span>
             <h3 className="text-2xl font-display text-ink mt-1">
-              {Object.values(evaluations).filter(s => s.tagEvaluations.every(t => t.ratingA !== null && t.ratingB !== null)).length}\n              <span className="text-sm text-ink-faint font-body"> / 6 أقسام</span>
+              {Object.values(evaluations).filter(s => s.tagEvaluations.every(t => t.ratingA !== null && t.ratingB !== null)).length}              <span className="text-sm text-ink-faint font-body"> / 6 أقسام</span>
             </h3>
           </div>
           <div className="p-3 bg-sage/10 text-sage rounded-xl">
@@ -419,7 +419,7 @@ export default function SummaryDashboard({
             id="btn-export-json"
             onClick={downloadJsonState}
             className="px-5 py-3 rounded-full bg-paper-sunk border border-line text-ink-soft hover:text-ink hover:bg-line/40 font-bold text-sm flex items-center gap-2 transition-all cursor-pointer"
-          >\n            <Download className="w-4 h-4" />\n            <span>تصدير حالة العمل لملف JSON</span>\n          </button>
+          >            <Download className="w-4 h-4" />            <span>تصدير حالة العمل لملف JSON</span>         </button>
 
           {/* Import JSON Trigger */}
           <label
