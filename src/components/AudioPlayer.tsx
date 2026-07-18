@@ -111,12 +111,20 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const versionColors = version === 'A' 
-    ? { bg: 'bg-emerald-950/40 border-emerald-800/50', accent: 'text-emerald-400', fill: 'bg-emerald-500', range: 'accent-emerald-500' }
-    : { bg: 'bg-sky-950/40 border-sky-800/50', accent: 'text-sky-400', fill: 'bg-sky-500', range: 'accent-sky-500' };
+  // Version A reads as amber (gold-adjacent), Version B as sage — matching the manuscript palette
+  const isA = version === 'A';
+  const versionColors = isA
+    ? { border: 'border-line', text: 'text-amber', chip: 'bg-amber/15 text-amber', play: 'bg-amber text-paper-raised hover:bg-gold-deep' }
+    : { border: 'border-line', text: 'text-sage', chip: 'bg-sage/15 text-sage', play: 'bg-sage text-paper-raised hover:bg-gold-deep' };
+
+  // Deterministic pseudo-waveform bar heights, seeded by version so A/B look distinct
+  const barHeights = Array.from({ length: 14 }, (_, i) => {
+    const seed = isA ? i * 37 + 11 : i * 53 + 29;
+    return 30 + (seed % 50);
+  });
 
   return (
-    <div id={`audio-player-${version}`} className={`p-4 rounded-xl border ${versionColors.bg} transition-all duration-300`}>
+    <div id={`audio-player-${version}`} className={`p-4 rounded-2xl border ${versionColors.border} bg-paper-sunk transition-all duration-300`}>
       <audio
         ref={audioRef}
         src={src || undefined}
@@ -129,28 +137,39 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
 
       <div className="flex items-start justify-between gap-3 mb-3">
         <div className="flex items-center gap-2 min-w-0">
-          <div className={`p-2 rounded-lg bg-black/40 ${versionColors.accent}`}>
+          <div className={`p-2 rounded-lg bg-paper-raised border border-line ${versionColors.text}`}>
             <Music className="w-4 h-4" />
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className={`text-xs font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${version === 'A' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-sky-500/20 text-sky-400'}`}>
+              <span className={`font-display text-base ${versionColors.text}`}>
                 النسخة {version}
               </span>
-              <span className="text-gray-400 text-xs font-mono">
+              <span className="font-latin text-ink-faint text-xs">
                 {filename.includes('.') ? filename.split('.').pop()!.toUpperCase() : "MP3"}
               </span>
             </div>
-            <p className="text-sm font-medium text-white truncate mt-1 text-right dir-rtl font-sans" title={filename}>
+            <p className="text-sm text-ink-soft truncate mt-1 text-right dir-rtl font-body" title={filename}>
               {filename}
             </p>
           </div>
         </div>
       </div>
 
+      {/* Waveform */}
+      <div className="h-[38px] flex items-end gap-[2px] mb-2.5">
+        {barHeights.map((h, i) => (
+          <span
+            key={i}
+            className="waveform-bar"
+            style={{ height: `${h}%`, background: i % 3 === 0 ? `var(--color-${isA ? 'amber' : 'sage'})` : undefined }}
+          />
+        ))}
+      </div>
+
       {!src ? (
-        <div className="h-24 flex items-center justify-center border border-dashed border-gray-700/60 rounded-lg bg-black/20">
-          <p className="text-xs text-gray-500 text-center font-sans">
+        <div className="h-24 flex items-center justify-center border border-dashed border-line rounded-lg bg-paper-raised/60">
+          <p className="text-sm text-ink-faint text-center font-body">
             الملف الصوتي لهذه النسخة غير محمل.<br />
             اسحب الملف أو اختره من الأعلى للتفعيل.
           </p>
@@ -165,31 +184,30 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
               max={duration || 100}
               value={currentTime}
               onChange={handleSeek}
-              className={`w-full h-1.5 rounded-lg bg-gray-800 cursor-pointer appearance-none ${versionColors.range}`}
+              className="w-full h-1.5 rounded-lg bg-line cursor-pointer appearance-none"
               id={`seekbar-${version}`}
             />
-            <div className="flex justify-between items-center text-xs font-mono text-gray-500">
+            <div className="flex justify-between items-center font-latin text-xs text-ink-faint">
               <span>{formatTime(duration)}</span>
               <span>{formatTime(currentTime)}</span>
             </div>
           </div>
 
           {/* Controls Panel */}
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-black/30 p-2.5 rounded-lg">
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-paper-raised p-2.5 rounded-lg border border-line">
             {/* Play/Pause & Reset */}
             <div className="flex items-center gap-2">
               <button
                 id={`btn-play-pause-${version}`}
                 onClick={togglePlay}
-                className={`p-2.5 rounded-full ${isPlaying ? 'bg-gray-100 text-black' : version === 'A' ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'bg-sky-500 text-black hover:bg-sky-400'} transition-all`}
+                className={`p-2.5 rounded-full ${versionColors.play} transition-all`}
                 title={isPlaying ? "إيقاف مؤقت" : "تشغيل"}
-              >
-                {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
+              >                {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
               </button>
               <button
                 id={`btn-reset-${version}`}
                 onClick={restartAudio}
-                className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                className="p-2 rounded-full text-ink-soft hover:text-ink hover:bg-paper-sunk transition-all"
                 title="إعادة للبداية"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -198,18 +216,18 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
 
             {/* Playback Speed Controls */}
             <div className="flex items-center gap-1">
-              <span className="text-[10px] text-gray-500 font-sans mr-1 flex items-center gap-0.5">
-                <Sliders className="w-3 h-3 text-gray-500" /> السرعة:
+              <span className="text-[11px] text-ink-faint font-latin mr-1 flex items-center gap-0.5">
+                <Sliders className="w-3 h-3" /> السرعة:
               </span>
               {[0.75, 1.0, 1.25, 1.5].map((rate) => (
                 <button
                   key={rate}
                   id={`btn-speed-${version}-${rate}`}
                   onClick={() => handleSpeedChange(rate)}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-all ${
-                    playbackRate === rate 
-                      ? version === 'A' ? 'bg-emerald-500/20 text-emerald-400 font-bold' : 'bg-sky-500/20 text-sky-400 font-bold'
-                      : 'text-gray-500 hover:text-gray-300'
+                  className={`px-1.5 py-0.5 rounded text-[11px] font-latin transition-all ${
+                    playbackRate === rate
+                      ? `${versionColors.chip} font-bold`
+                      : 'text-ink-faint hover:text-ink-soft'
                   }`}
                 >
                   {rate}x
@@ -222,7 +240,7 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
               <button
                 id={`btn-mute-${version}`}
                 onClick={toggleMute}
-                className="text-gray-400 hover:text-white transition-all"
+                className="text-ink-soft hover:text-ink transition-all"
                 title={isMuted ? "إلغاء كتم الصوت" : "كتم الصوت"}
               >
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -235,7 +253,7 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
                 step={0.05}
                 value={isMuted ? 0 : volume}
                 onChange={handleVolumeChange}
-                className={`w-16 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer ${versionColors.range}`}
+                className="w-16 h-1 bg-line rounded-lg appearance-none cursor-pointer"
               />
             </div>
           </div>

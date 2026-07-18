@@ -1,16 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Markazi+Text:wght@400;500;600;700&family=EB+Garamond:ital@0;1&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  /* Diwan Manuscript palette */
+  --color-paper: #F3EADA;
+  --color-paper-raised: #FBF5E8;
+  --color-paper-sunk: #EAE0CB;
+  --color-ink: #2B2118;
+  --color-ink-soft: #5B4E3E;
+  --color-ink-faint: #8C7E68;
+  --color-line: #D9CBA9;
+  --color-gold: #A9782E;
+  --color-gold-deep: #7C5A20;
+  --color-burgundy: #8A3A3A;
+  --color-sage: #5C7A5C;
+  --color-amber: #B98A2E;
+
+  --font-display: "Amiri", serif;
+  --font-body: "Markazi Text", serif;
+  --font-latin: "EB Garamond", serif;
+  --font-sans: "Markazi Text", serif;
+  --font-mono: "EB Garamond", serif;
 }
 
 /* Custom RTL layouts and scrollbars */
 html, body {
-  font-family: var(--font-sans);
-  background-color: #020617; /* slate-950 */
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   direction: rtl;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(169, 120, 46, .05), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(138, 58, 58, .04), transparent 40%);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-paper-raised);
 }
 
 ::-webkit-scrollbar {
@@ -19,15 +45,45 @@ html, body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: var(--color-paper);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: var(--color-line);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: var(--color-gold);
 }
 
+/* Ornamental divider, echoing the manuscript rosette */
+.diwan-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  position: relative;
+}
+
+.diwan-divider::before {
+  content: "❖";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-gold);
+  background: var(--color-paper);
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+/* Range input theming to match the manuscript accents */
+input[type="range"] {
+  accent-color: var(--color-gold);
+}
+
+/* Waveform bars used by the audio player */
+.waveform-bar {
+  flex: 1;
+  background: var(--color-line);
+  border-radius: 2px;
+}

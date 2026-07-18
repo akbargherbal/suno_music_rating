@@ -8,7 +8,7 @@ import { sectionsData, initialEvaluationState } from './data';
 import { SectionEvaluation, Rating } from './types';
 import SectionEvaluator from './components/SectionEvaluator';
 import SummaryDashboard from './components/SummaryDashboard';
-import { Play, FileAudio, FolderOpen, UploadCloud, Info, CheckCircle, BarChart3, HelpCircle, Star, Music, AlertCircle } from 'lucide-react';
+import { UploadCloud, BarChart3 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const LOCAL_STORAGE_KEY = 'suno_eval_v4_state';
@@ -160,13 +160,7 @@ export default function App() {
 
   // Interactive Synthesizer fallback for demoing and testing purposes
   const enableDemoSynthMode = () => {
-    // Generate simple synth audio urls (using oscillators with Web Audio API and converting to DataURLs isn't easy,
-    // so we can use a small pre-recorded base64 beep or silence file that runs in HTML5 player, or we can use
-    // some royalty free web audio assets. Let's load standard synthesized audio to make sure players are fully operational).
-    // Let's use a standard public short mp3 clip or beep, but even better, we can inject a simple 2-second synthesized sine wave
-    // data URL as the source so they can hear sounds and interact with the seekbar!
-    
-    // A 5-second synthesized sine wave synthesized as data URL
+    // Generate simple synth audio urls...
     const demoBeepA = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"; // Or a small stable royalty-free test track
     const demoBeepB = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"; // Diff test track for B
 
@@ -195,60 +189,60 @@ export default function App() {
   const loadedFilesCount = (Object.values(loadedFilesInfo) as { size: string; status: 'loaded' | 'missing' }[]).filter(f => f.status === 'loaded').length;
 
   return (
-    <div id="app-container" className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
-      {/* Premium Navigation Header */}
-      <header className="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4">
+    <div id="app-container" className="min-h-screen bg-paper text-ink flex flex-col font-body selection:bg-gold selection:text-paper-raised">
+      {/* Manuscript Header */}
+      <header className="bg-paper-raised border-b-2 border-gold sticky top-0 z-50 px-6 py-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Platform Title */}
-          <div className="flex items-center gap-3 text-right dir-rtl">
-            <div className="p-2.5 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/25">
-              <Music className="w-6 h-6 animate-pulse" />
+          {/* Platform Title / Brand roundel */}
+          <div className="flex items-center gap-4 text-right dir-rtl">
+            <div className="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center font-display text-xl text-gold-deep bg-[radial-gradient(circle,var(--color-paper-raised)_55%,var(--color-paper-sunk)_100%)] shrink-0">
+              ن
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-black text-white tracking-tight">منصة تقييم استماع أغاني سونو v4</h1>
-                <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-extrabold px-2 py-0.5 rounded-full font-mono">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-xl font-display font-bold text-ink tracking-tight">ديوان تقييم النابغة</h1>
+                <span className="font-latin text-[11px] text-gold-deep border border-gold px-2.5 py-0.5 rounded-full">
                   NABIGHA_01
                 </span>
               </div>
-              <p className="text-[11px] text-gray-400 font-medium">مشروع تقييم 6 أقسام لقصيدة النابغة الذبياني (سونو v4 — مقارنة A/B ثنائية)</p>
+              <p className="font-latin italic text-[13px] text-ink-soft mt-0.5">استماع نقدي مقارن — سونو الإصدار الرابع</p>
             </div>
           </div>
 
           {/* Tab Switcher & Status */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-4">
             {/* Tab switchers */}
-            <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex">
+            <div className="flex gap-1">
               <button
                 id="tab-sections"
                 onClick={() => setActiveTab('sections')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === 'sections' 
-                    ? 'bg-indigo-500 text-white shadow-md' 
-                    : 'text-gray-400 hover:text-white'
+                className={`px-5 py-2 rounded-t-xl text-[15px] font-body transition-all border cursor-pointer ${
+                  activeTab === 'sections'
+                    ? 'bg-paper-sunk text-ink border-line font-bold'
+                    : 'text-ink-soft border-transparent hover:text-ink'
                 }`}
               >
-                <span>🎵</span> الأقسام والمقاطع
+                الأقسام والمقاطع
               </button>
               <button
                 id="tab-summary"
                 onClick={() => setActiveTab('summary')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === 'summary' 
-                    ? 'bg-indigo-500 text-white shadow-md' 
-                    : 'text-gray-400 hover:text-white'
+                className={`px-5 py-2 rounded-t-xl text-[15px] font-body transition-all border flex items-center gap-1.5 cursor-pointer ${
+                  activeTab === 'summary'
+                    ? 'bg-paper-sunk text-ink border-line font-bold'
+                    : 'text-ink-soft border-transparent hover:text-ink'
                 }`}
               >
                 <BarChart3 className="w-3.5 h-3.5" />
-                <span>📊 تقرير التقييم والتحليل</span>
+                <span>التقرير</span>
               </button>
             </div>
 
             {/* Total File loading info */}
-            <div className="text-xs bg-slate-950/40 px-3 py-2 rounded-xl border border-slate-800 flex items-center gap-2">
-              <span className={`w-2 h-2 rounded-full ${loadedFilesCount === 12 ? 'bg-emerald-400 animate-ping' : loadedFilesCount > 0 ? 'bg-amber-400' : 'bg-gray-600'}`}></span>
-              <span className="text-gray-300 font-sans font-medium">
-                {loadedFilesCount === 12 ? '🔊 تم تحميل الـ 12 ملفاً صوتياً بنجاح!' : `الملفات الصوتية: ${loadedFilesCount} / 12`}
+            <div className="font-latin text-xs text-ink-soft border border-line px-3.5 py-1.5 rounded-full bg-paper-sunk flex items-center gap-2">
+              <span className={`w-2 h-2 rounded-full ${loadedFilesCount === 12 ? 'bg-sage animate-ping' : loadedFilesCount > 0 ? 'bg-amber' : 'bg-ink-faint'}`}></span>
+              <span>
+                {loadedFilesCount === 12 ? 'تم تحميل الـ 12 ملفاً صوتياً بنجاح' : `الملفات ${loadedFilesCount} / 12`}
               </span>
             </div>
           </div>
@@ -257,34 +251,34 @@ export default function App() {
 
       {/* Main Container Workspace */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 space-y-6">
-        
+
         {/* Magic File Association & Drag Drop Box */}
         {loadedFilesCount < 12 && (
-          <div className="bg-slate-900/60 border border-dashed border-indigo-500/30 rounded-2xl p-5 text-right dir-rtl">
+          <div className="border border-line bg-paper-raised rounded-2xl p-5 text-right dir-rtl shadow-[0_1px_0_var(--color-line)]">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-start gap-3.5">
-                <div className="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl shrink-0">
+                <div className="p-3 bg-paper-sunk text-gold-deep rounded-xl shrink-0 border border-line">
                   <UploadCloud className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white font-sans">تزامن ومزامنة الملفات الصوتية المحلية</h3>
-                  <p className="text-xs text-gray-400 mt-1 leading-relaxed max-w-xl font-medium">
-                    اسحب وأسقط الـ 12 ملفاً من المجلد <code className="text-indigo-300 bg-indigo-950/40 px-1 py-0.5 rounded font-mono">D:\MY_MUSIC\NABIGHA_01_1807206\START_ON TRUE</code> مباشرة هنا! سيقوم النظام تلقائياً بربط الملف بالقسم والنسخة الصحيحة دون رفع أي بايت للإنترنت.
+                  <h3 className="text-lg font-display text-ink">تزامن الملفات الصوتية</h3>
+                  <p className="text-[15px] text-ink-soft mt-1.5 leading-relaxed max-w-xl">
+                    اسحب وأسقط الـ 12 ملفاً من المجلد <code className="font-latin italic text-gold-deep px-1 py-0.5 rounded">D:\MY_MUSIC\NABIGHA_01_1807206\START_ON TRUE</code> مباشرة هنا! سيقوم النظام تلقائياً بربط الملف بالقسم والنسخة الصحيحة دون رفع أي بايت للإنترنت.
                   </p>
                 </div>
               </div>
 
               {/* Action buttons */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5 shrink-0">
                 <button
                   id="btn-demo-synth"
                   onClick={enableDemoSynthMode}
-                  className="px-4 py-2 bg-slate-800 text-gray-300 hover:text-white rounded-xl text-xs font-bold transition-all border border-slate-700 cursor-pointer"
+                  className="px-5 py-2.5 bg-paper-sunk text-ink hover:bg-line/60 rounded-full text-sm font-body transition-all border border-gold cursor-pointer"
                 >
-                  {demoSynthActive ? '⚡ تشغيل تجريبي مفعل' : '🎭 تفعيل تشغيل تجريبي (Demo Tracks)'}
+                  {demoSynthActive ? '⚡ تشغيل تجريبي مفعل' : 'تفعيل تشغيل تجريبي'}
                 </button>
-                <label className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-md cursor-pointer">
-                  <span>📂 اختر الملفات</span>
+                <label className="px-5 py-2.5 bg-gold hover:bg-gold-deep text-paper-raised rounded-full text-sm font-bold transition-all cursor-pointer">
+                  <span>اختر الملفات</span>
                   <input
                     id="input-audio-picker"
                     type="file"
@@ -298,15 +292,15 @@ export default function App() {
             </div>
 
             {/* Local files status badges */}
-            <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-800/60">
+            <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-dashed border-line">
               {sectionsData.map(s => {
                 const statusA = loadedFilesInfo[`${s.id}_A`]?.status === 'loaded';
                 const statusB = loadedFilesInfo[`${s.id}_B`]?.status === 'loaded';
                 return (
-                  <div key={s.id} className="bg-black/30 px-2.5 py-1.5 rounded-lg border border-slate-800 flex items-center gap-2 text-[10px]">
-                    <span className="text-gray-400 font-bold font-sans">القسم {s.id}:</span>
-                    <span className={`px-1.5 rounded ${statusA ? 'bg-emerald-500/20 text-emerald-400' : 'bg-gray-800 text-gray-500'}`}>A</span>
-                    <span className={`px-1.5 rounded ${statusB ? 'bg-sky-500/20 text-sky-400' : 'bg-gray-800 text-gray-500'}`}>B</span>
+                  <div key={s.id} className="font-latin text-xs border border-line px-2.5 py-1 rounded-full text-ink-soft bg-paper-sunk flex items-center gap-1.5">
+                    <b className="text-gold-deep">القسم {s.id}</b>
+                    <span className={statusA ? 'text-amber font-bold' : 'text-ink-faint'}>A{statusA ? '●' : '○'}</span>
+                    <span className={statusB ? 'text-sage font-bold' : 'text-ink-faint'}>B{statusB ? '●' : '○'}</span>
                   </div>
                 );
               })}
@@ -326,9 +320,9 @@ export default function App() {
             >
               {/* Left sidebar directory list */}
               <div className="lg:col-span-1 space-y-3 order-last lg:order-first">
-                <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-md">
-                  <h3 className="text-sm font-extrabold text-gray-400 uppercase tracking-wider mb-3">فهرس الأقسام الستة</h3>
-                  <div className="space-y-1.5">
+                <div className="bg-paper-raised border border-line p-4 rounded-2xl">
+                  <h3 className="font-display text-base text-gold-deep mb-3">فهرس الأقسام الستة</h3>
+                  <div className="space-y-2.5">
                     {sectionsData.map(s => {
                       const isActive = s.id === activeSectionId;
                       const hasFiles = loadedFilesInfo[`${s.id}_A`]?.status === 'loaded' && loadedFilesInfo[`${s.id}_B`]?.status === 'loaded';
@@ -341,31 +335,31 @@ export default function App() {
                           key={s.id}
                           id={`sidebar-sec-btn-${s.id}`}
                           onClick={() => setActiveSectionId(s.id)}
-                          className={`w-full text-right p-3 rounded-xl border flex flex-col justify-between transition-all cursor-pointer ${
-                            isActive 
-                              ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg' 
-                              : 'bg-slate-950 border-slate-800/80 text-gray-300 hover:bg-slate-800'
+                          className={`w-full text-right p-3.5 rounded-xl border flex flex-col justify-between transition-all cursor-pointer bg-paper-raised ${
+                            isActive
+                              ? 'border-2 border-gold p-[13px]'
+                              : 'border-line hover:bg-paper-sunk'
                           }`}
                         >
                           <div className="flex items-center justify-between w-full">
-                            <span className="text-xs font-bold font-mono">القسم {s.id}</span>
-                            <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded-full ${
-                              isActive ? 'bg-indigo-500 text-indigo-100' : 'bg-slate-900 text-gray-400'
-                            }`}>
+                            <span className="w-[26px] h-[26px] rounded-full border-[1.5px] border-gold flex items-center justify-center font-display text-xs text-gold-deep">
+                              {s.id}
+                            </span>
+                            <span className="font-latin italic text-xs text-ink-soft">
                               مقام {s.maqam}
                             </span>
                           </div>
-                          <p className="text-xs font-bold truncate mt-1 text-right font-sans w-full">
+                          <h4 className="font-display text-base text-ink mt-2">
                             {s.title.split('—')[1] || s.title}
-                          </p>
+                          </h4>
 
                           {/* Progress bar info */}
-                          <div className="w-full mt-2.5 flex items-center justify-between text-[10px]">
-                            <span className={isActive ? 'text-indigo-100' : 'text-gray-500'}>
-                              {hasFiles ? '🔊 صوت متوفر' : '⚪ بدون صوت'}
+                          <div className="w-full mt-2.5 flex items-center justify-between font-latin text-[11.5px] text-ink-faint">
+                            <span>
+                              {hasFiles ? 'صوت متوفر' : 'بدون صوت'}
                             </span>
-                            <span className={`font-mono font-bold ${isFullyEvaluated ? 'text-emerald-400' : 'text-gray-400'}`}>
-                              {ratedTagsCount} / {totalTags} تاق
+                            <span className={isFullyEvaluated ? 'text-sage font-bold' : ''}>
+                              {ratedTagsCount} / {totalTags}
                             </span>
                           </div>
                         </button>
@@ -375,10 +369,10 @@ export default function App() {
                 </div>
 
                 {/* Info summary card on sidebar */}
-                <div className="bg-slate-900/50 border border-slate-800 p-4 rounded-2xl text-right">
-                  <h4 className="text-xs font-bold text-gray-400">نصيحة تقييم:</h4>
-                  <p className="text-[11px] text-gray-400 mt-1 leading-relaxed">
-                    استمع لكل قسم **كامل ومرة وحدة بدون توقف** أول شي (زي ما تسمعه وأنت تشتغل)، سجّل الانطباع العام، وبعدين ارجع لكل نقطة بالتفصيل لو احتجت.
+                <div className="border border-line bg-paper-raised p-4 rounded-2xl text-right">
+                  <h5 className="font-display text-sm text-gold-deep mb-2">نصيحة تقييم</h5>
+                  <p className="text-sm text-ink-soft leading-relaxed">
+                    استمع لكل قسم كاملاً بدون توقف أول شي (زي ما تسمعه وأنت تشتغل)، سجّل الانطباع العام، وبعدين ارجع لكل نقطة بالتفصيل لو احتجت.
                   </p>
                 </div>
               </div>
@@ -420,8 +414,8 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-gray-500 mt-auto font-sans">
-        <p>© 2026 مشروع تقييم قصيدة النابغة الذبياني — Suno v4 | تم التطوير وفقاً لأعلى معايير الإتقان والتصميم المتجانس</p>
+      <footer className="border-t border-line py-8 text-center font-latin italic text-[13px] text-ink-faint mt-auto">
+        <p>مشروع تقييم قصيدة النابغة الذبياني — سونو الإصدار الرابع · 2026</p>
       </footer>
     </div>
   );

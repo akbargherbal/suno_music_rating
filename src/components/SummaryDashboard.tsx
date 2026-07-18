@@ -99,7 +99,7 @@ export default function SummaryDashboard({
       const e = evaluations[sec.id];
       md += `## ${sec.title} (مقام ${sec.maqam})\n\n`;
       md += `### المعيارين غير القابلين للتفاوض\n\n`;
-      
+
       // Drift
       md += `#### 1) الدريفت (Gravitational Well)\n`;
       md += `* **النسخة A:** ${e.driftA === 'no' ? '[x] ما صار دريفت' : '[ ] ما صار دريفت'} | ${e.driftA === 'yes' ? '[x] صار دريفت' : '[ ] صار دريفت'} | ${e.driftA === 'not_sure' ? '[x] مو متأكد / حدّي' : '[ ] مو متأكد / حدّي'}\n`;
@@ -120,7 +120,7 @@ export default function SummaryDashboard({
       md += `### تقييم التاقات والمقاطع بالتفصيل\n\n`;
       md += `| التاق كما هو بv4 | المتوقع منه | تقييم النسخة A | تقييم النسخة B |\n`;
       md += `|---|---|---|---|\n`;
-      
+
       e.tagEvaluations.forEach(t => {
         const ratingAStr = t.ratingA === 'GREEN' ? '🟢 معتدل جميل' : t.ratingA === 'YELLOW' ? '🟡 باهت/خامل' : t.ratingA === 'RED' ? '🔴 صاخب/مزعج' : 'غير مقيم';
         const ratingBStr = t.ratingB === 'GREEN' ? '🟢 معتدل جميل' : t.ratingB === 'YELLOW' ? '🟡 باهت/خامل' : t.ratingB === 'RED' ? '🔴 صاخب/مزعج' : 'غير مقيم';
@@ -143,7 +143,7 @@ export default function SummaryDashboard({
     md += `## جدول الملخص النهائي لجميع الأقسام\n\n`;
     md += `| # | المقام | نجاح A؟ | نجاح B؟ | الدريفت A | الدريفت B | الانتقالات A | الانتقالات B | النسخة المفضلة |\n`;
     md += `|---|--------|---------|---------|-----------|-----------|--------------|--------------|----------------|\n`;
-    
+
     sections.forEach(sec => {
       const e = evaluations[sec.id];
       const sA = e.generalSuccessA ? '✅' : '❌';
@@ -153,7 +153,7 @@ export default function SummaryDashboard({
       const tA = e.transitionsA === 'smooth' ? '🟢 انسيابي' : e.transitionsA === 'sudden' ? '🔴 قفزة' : '🟡 حدي';
       const tB = e.transitionsB === 'smooth' ? '🟢 انسيابي' : e.transitionsB === 'sudden' ? '🔴 قفزة' : '🟡 حدي';
       const pref = e.preferredVersion === 'A' ? 'النسخة A ⭐' : e.preferredVersion === 'B' ? 'النسخة B ⭐' : e.preferredVersion === 'both' ? 'كلاهما' : e.preferredVersion === 'neither' ? 'لا أحد' : 'لم تحدد';
-      
+
       md += `| ${sec.id} | ${sec.maqam} | ${sA} | ${sB} | ${dA} | ${dB} | ${tA} | ${tB} | ${pref} |\n`;
     });
 
@@ -201,69 +201,68 @@ export default function SummaryDashboard({
   };
 
   return (
-    <div id="summary-dashboard" className="space-y-8 text-right dir-rtl font-sans pb-12">
+    <div id="summary-dashboard" className="space-y-8 text-right dir-rtl font-body pb-12">
       {/* Top Banner Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex items-center justify-between shadow-lg">
+        <div className="bg-paper-raised border border-line p-5 rounded-2xl flex items-center justify-between">
           <div>
-            <span className="text-xs text-gray-400 font-bold">التقدم الإجمالي</span>
-            <h3 className="text-2xl font-black text-white font-mono mt-1">
-              {totalTagsEvaluated} <span className="text-sm text-gray-500">/ {totalTagsCount} تاقاً</span>
+            <span className="text-xs text-ink-soft font-bold">التقدم الإجمالي</span>
+            <h3 className="text-2xl font-display text-ink mt-1">
+              {totalTagsEvaluated} <span className="text-sm text-ink-faint font-body">/ {totalTagsCount} تاقاً</span>
             </h3>
           </div>
-          <div className="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl">
+          <div className="p-3 bg-gold/10 text-gold-deep rounded-xl">
             <Music className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex items-center justify-between shadow-lg">
+        <div className="bg-paper-raised border border-line p-5 rounded-2xl flex items-center justify-between">
           <div>
-            <span className="text-xs text-gray-400 font-bold">الأقسام المكتملة</span>
-            <h3 className="text-2xl font-black text-white font-mono mt-1">
-              {Object.values(evaluations).filter(s => s.tagEvaluations.every(t => t.ratingA !== null && t.ratingB !== null)).length}
-              <span className="text-sm text-gray-500"> / 6 أقسام</span>
+            <span className="text-xs text-ink-soft font-bold">الأقسام المكتملة</span>
+            <h3 className="text-2xl font-display text-ink mt-1">
+              {Object.values(evaluations).filter(s => s.tagEvaluations.every(t => t.ratingA !== null && t.ratingB !== null)).length}\n              <span className="text-sm text-ink-faint font-body"> / 6 أقسام</span>
             </h3>
           </div>
-          <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl">
+          <div className="p-3 bg-sage/10 text-sage rounded-xl">
             <Check className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex items-center justify-between shadow-lg">
+        <div className="bg-paper-raised border border-line p-5 rounded-2xl flex items-center justify-between">
           <div>
-            <span className="text-xs text-gray-400 font-bold">فوز النسخة A</span>
-            <h3 className="text-2xl font-black text-emerald-400 font-mono mt-1">
-              {preferredCount.A} <span className="text-sm text-gray-500 font-sans">أقسام</span>
+            <span className="text-xs text-ink-soft font-bold">فوز النسخة A</span>
+            <h3 className="text-2xl font-display text-amber mt-1">
+              {preferredCount.A} <span className="text-sm text-ink-faint font-body">أقسام</span>
             </h3>
           </div>
-          <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl">
+          <div className="p-3 bg-amber/10 text-amber rounded-xl">
             <Award className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex items-center justify-between shadow-lg">
+        <div className="bg-paper-raised border border-line p-5 rounded-2xl flex items-center justify-between">
           <div>
-            <span className="text-xs text-gray-400 font-bold">فوز النسخة B</span>
-            <h3 className="text-2xl font-black text-sky-400 font-mono mt-1">
-              {preferredCount.B} <span className="text-sm text-gray-500 font-sans">أقسام</span>
+            <span className="text-xs text-ink-soft font-bold">فوز النسخة B</span>
+            <h3 className="text-2xl font-display text-sage mt-1">
+              {preferredCount.B} <span className="text-sm text-ink-faint font-body">أقسام</span>
             </h3>
           </div>
-          <div className="p-3 bg-sky-500/10 text-sky-400 rounded-xl">
+          <div className="p-3 bg-sage/10 text-sage rounded-xl">
             <Award className="w-6 h-6" />
           </div>
         </div>
       </div>
 
       {/* Main Final Summary Table */}
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl">
-        <h3 className="text-xl font-black text-white mb-4 flex items-center gap-2">
-          <span>📅</span> جدول الخلاصة والملخص النهائي
+      <div className="bg-paper-raised border border-line rounded-2xl p-6">
+        <h3 className="font-display text-xl text-ink mb-4">
+          جدول الخلاصة والملخص النهائي
         </h3>
 
         <div className="overflow-x-auto">
           <table id="final-summary-table" className="w-full text-right border-collapse text-sm">
             <thead>
-              <tr className="border-b border-slate-800 text-gray-400 font-bold text-xs">
+              <tr className="border-b border-line text-ink-faint font-bold text-xs">
                 <th className="py-3 px-4">القسم</th>
                 <th className="py-3 px-4">المقام</th>
                 <th className="py-3 px-4 text-center">نجاح A؟</th>
@@ -275,58 +274,58 @@ export default function SummaryDashboard({
                 <th className="py-3 px-4 text-center">النسخة المفضلة</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 font-medium">
+            <tbody className="divide-y divide-line/60 font-medium">
               {sections.map(sec => {
                 const e = evaluations[sec.id];
                 if (!e) return null;
                 return (
-                  <tr key={sec.id} id={`summary-row-${sec.id}`} className="hover:bg-slate-800/30 transition-all">
-                    <td className="py-4 px-4 font-bold text-white">{sec.title}</td>
+                  <tr key={sec.id} id={`summary-row-${sec.id}`} className="hover:bg-paper-sunk/50 transition-all">
+                    <td className="py-4 px-4 font-display text-ink">{sec.title}</td>
                     <td className="py-4 px-4">
-                      <span className="bg-indigo-500/10 text-indigo-400 text-xs px-2.5 py-0.5 rounded-full font-bold">
+                      <span className="border border-line bg-paper-sunk text-ink-soft text-xs px-2.5 py-0.5 rounded-full font-bold">
                         {sec.maqam}
                       </span>
                     </td>
                     <td className="py-4 px-4 text-center">
                       {e.generalSuccessA ? (
-                        <Check className="w-5 h-5 text-emerald-400 mx-auto" />
+                        <Check className="w-5 h-5 text-sage mx-auto" />
                       ) : (
-                        <X className="w-5 h-5 text-red-500 mx-auto" />
+                        <X className="w-5 h-5 text-burgundy mx-auto" />
                       )}
                     </td>
                     <td className="py-4 px-4 text-center">
                       {e.generalSuccessB ? (
-                        <Check className="w-5 h-5 text-emerald-400 mx-auto" />
+                        <Check className="w-5 h-5 text-sage mx-auto" />
                       ) : (
-                        <X className="w-5 h-5 text-red-500 mx-auto" />
+                        <X className="w-5 h-5 text-burgundy mx-auto" />
                       )}
                     </td>
                     <td className="py-4 px-4">
-                      <span className={`text-xs px-2.5 py-1 rounded ${e.driftA === 'no' ? 'bg-emerald-500/10 text-emerald-400' : e.driftA === 'yes' ? 'bg-red-500/15 text-red-400 font-bold' : 'bg-yellow-500/10 text-yellow-400'}`}>
+                      <span className={`text-xs px-2.5 py-1 rounded-full border ${e.driftA === 'no' ? 'border-sage/40 text-sage' : e.driftA === 'yes' ? 'border-burgundy/40 text-burgundy font-bold' : 'border-amber/40 text-amber'}`}>
                         {e.driftA === 'no' ? '🟢 لم يشرد' : e.driftA === 'yes' ? '🔴 دريفت' : '🟡 حدي'}
                       </span>
                     </td>
                     <td className="py-4 px-4">
-                      <span className={`text-xs px-2.5 py-1 rounded ${e.driftB === 'no' ? 'bg-emerald-500/10 text-emerald-400' : e.driftB === 'yes' ? 'bg-red-500/15 text-red-400 font-bold' : 'bg-yellow-500/10 text-yellow-400'}`}>
+                      <span className={`text-xs px-2.5 py-1 rounded-full border ${e.driftB === 'no' ? 'border-sage/40 text-sage' : e.driftB === 'yes' ? 'border-burgundy/40 text-burgundy font-bold' : 'border-amber/40 text-amber'}`}>
                         {e.driftB === 'no' ? '🟢 لم يشرد' : e.driftB === 'yes' ? '🔴 دريفت' : '🟡 حدي'}
                       </span>
                     </td>
                     <td className="py-4 px-4">
-                      <span className={`text-xs px-2.5 py-1 rounded ${e.transitionsA === 'smooth' ? 'bg-emerald-500/10 text-emerald-400' : e.transitionsA === 'sudden' ? 'bg-orange-500/15 text-orange-400 font-bold' : 'bg-yellow-500/10 text-yellow-400'}`}>
+                      <span className={`text-xs px-2.5 py-1 rounded-full border ${e.transitionsA === 'smooth' ? 'border-sage/40 text-sage' : e.transitionsA === 'sudden' ? 'border-burgundy/40 text-burgundy font-bold' : 'border-amber/40 text-amber'}`}>
                         {e.transitionsA === 'smooth' ? '🟢 انسيابي' : e.transitionsA === 'sudden' ? '🔴 قفزات' : '🟡 حدي'}
                       </span>
                     </td>
                     <td className="py-4 px-4">
-                      <span className={`text-xs px-2.5 py-1 rounded ${e.transitionsB === 'smooth' ? 'bg-emerald-500/10 text-emerald-400' : e.transitionsB === 'sudden' ? 'bg-orange-500/15 text-orange-400 font-bold' : 'bg-yellow-500/10 text-yellow-400'}`}>
+                      <span className={`text-xs px-2.5 py-1 rounded-full border ${e.transitionsB === 'smooth' ? 'border-sage/40 text-sage' : e.transitionsB === 'sudden' ? 'border-burgundy/40 text-burgundy font-bold' : 'border-amber/40 text-amber'}`}>
                         {e.transitionsB === 'smooth' ? '🟢 انسيابي' : e.transitionsB === 'sudden' ? '🔴 قفزات' : '🟡 حدي'}
                       </span>
                     </td>
                     <td className="py-4 px-4 text-center">
-                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                        e.preferredVersion === 'A' ? 'bg-emerald-500/20 text-emerald-400' :
-                        e.preferredVersion === 'B' ? 'bg-sky-500/20 text-sky-400' :
-                        e.preferredVersion === 'both' ? 'bg-indigo-500/20 text-indigo-400' :
-                        'bg-slate-950 text-gray-500'
+                      <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
+                        e.preferredVersion === 'A' ? 'border-amber text-amber bg-amber/10' :
+                        e.preferredVersion === 'B' ? 'border-sage text-sage bg-sage/10' :
+                        e.preferredVersion === 'both' ? 'border-gold text-gold-deep bg-gold/10' :
+                        'border-line text-ink-faint bg-paper-sunk'
                       }`}>
                         {e.preferredVersion === 'A' ? 'النسخة A ⭐' :
                          e.preferredVersion === 'B' ? 'النسخة B ⭐' :
@@ -345,57 +344,57 @@ export default function SummaryDashboard({
       {/* Hypothesis & Dynamic Insights Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Nahawand Drift check */}
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+        <div className="bg-paper-raised border border-line rounded-2xl p-6 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg">
+              <div className="p-2 bg-gold/10 text-gold-deep rounded-lg">
                 <Lightbulb className="w-5 h-5" />
               </div>
-              <h4 className="text-base font-black text-white">تحليل دريفت نهاوند (الفرضية والمراقبة)</h4>
+              <h4 className="font-display text-base text-ink">تحليل دريفت نهاوند (الفرضية والمراقبة)</h4>
             </div>
-            <p className="text-xs text-gray-400 leading-relaxed">
+            <p className="text-xs text-ink-soft leading-relaxed">
               تراقب هذه الفرضية ما إذا كان نهاوند (نظراً لقربه من السلم الغربي) يشرد ويتحول لنمط غربي عند حذف اسم المقام من تاق الهندسة الصوتية v4.
             </p>
-            <div className="p-4 bg-black/40 border border-slate-800 rounded-xl">
-              <p className="text-xs text-slate-300 leading-relaxed font-sans text-right">
+            <div className="p-4 bg-paper-sunk border border-line rounded-xl">
+              <p className="text-xs text-ink-soft leading-relaxed font-body text-right">
                 {evaluateNahawandHypothesis()}
               </p>
             </div>
           </div>
-          <div className="text-[10px] text-gray-500 pt-4 border-t border-slate-800 mt-4">
+          <div className="font-latin text-[11px] text-ink-faint pt-4 border-t border-line mt-4">
             تتم المقارنة تلقائياً بناءً على تقييماتك في القسم 1 والقسم 5.
           </div>
         </div>
 
         {/* Systemic bugs check */}
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+        <div className="bg-paper-raised border border-line rounded-2xl p-6 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 bg-orange-500/10 text-orange-400 rounded-lg">
+              <div className="p-2 bg-burgundy/10 text-burgundy rounded-lg">
                 <AlertTriangle className="w-5 h-5" />
               </div>
-              <h4 className="text-base font-black text-white">تحليل العيوب المنهجية (Verse 2)</h4>
+              <h4 className="font-display text-base text-ink">تحليل العيوب المنهجية (Verse 2)</h4>
             </div>
-            <p className="text-xs text-gray-400 leading-relaxed">
+            <p className="text-xs text-ink-soft leading-relaxed">
               يتحقق المحلل البرمجي تلقائياً من تكرار عيوب الضجيج أو الصراخ الصوتي في مقاطع Verse 2 الوسطية لجميع الأقسام، لكشف أي أخطاء متأصلة بـ Suno.
             </p>
-            <div className="p-4 bg-black/40 border border-slate-800/80 rounded-xl">
-              <p className="text-xs text-slate-300 leading-relaxed font-sans text-right">
+            <div className="p-4 bg-paper-sunk border border-line rounded-xl">
+              <p className="text-xs text-ink-soft leading-relaxed font-body text-right">
                 {evaluateSystemicIssues()}
               </p>
             </div>
           </div>
-          <div className="text-[10px] text-gray-500 pt-4 border-t border-slate-800 mt-4">
+          <div className="font-latin text-[11px] text-ink-faint pt-4 border-t border-line mt-4">
             يتأثر هذا التحليل بكل تاق يحمل وصف Verse 2 يتم تقييمه بـ 🔴 (صاخب مزعج).
           </div>
         </div>
       </div>
 
       {/* Export & Copy Center */}
-      <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8 shadow-2xl text-center space-y-6">
+      <div className="bg-paper-raised border border-line rounded-2xl p-8 text-center space-y-6">
         <div className="max-w-xl mx-auto space-y-2">
-          <h3 className="text-xl font-black text-white">📥 مركز الحفظ وتصدير التقارير</h3>
-          <p className="text-sm text-gray-400 leading-relaxed">
+          <h3 className="font-display text-xl text-ink">مركز الحفظ وتصدير التقارير</h3>
+          <p className="text-sm text-ink-soft leading-relaxed">
             يمكنك نسخ التقرير كاملاً بصيغة ماركداون (Markdown) غنية ومطابقة لملف التقييم الأصلي لمشاركتها، أو تحميل وحفظ حالة العمل لاستئناف التقييم لاحقاً.
           </p>
         </div>
@@ -405,33 +404,30 @@ export default function SummaryDashboard({
           <button
             id="btn-copy-markdown"
             onClick={copyToClipboard}
-            className={`px-5 py-3 rounded-xl font-bold text-sm flex items-center gap-2 transition-all cursor-pointer ${
-              copied 
-                ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/25' 
-                : 'bg-white text-black hover:bg-gray-100'
+            className={`px-5 py-3 rounded-full font-bold text-sm flex items-center gap-2 transition-all cursor-pointer border ${
+              copied
+                ? 'bg-sage text-paper-raised border-sage'
+                : 'bg-gold text-paper-raised border-gold hover:bg-gold-deep'
             }`}
           >
             <Copy className="w-4 h-4" />
-            <span>{copied ? '📋 تم نسخ تقرير Markdown ممتلئاً!' : '📋 نسخ التقرير كاملاً لـ Markdown'}</span>
+            <span>{copied ? 'تم نسخ تقرير Markdown ممتلئاً!' : 'نسخ التقرير كاملاً لـ Markdown'}</span>
           </button>
 
           {/* Export JSON */}
           <button
             id="btn-export-json"
             onClick={downloadJsonState}
-            className="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-gray-200 hover:text-white hover:bg-slate-800 font-bold text-sm flex items-center gap-2 transition-all cursor-pointer"
-          >
-            <Download className="w-4 h-4" />
-            <span>📥 تصدير حالة العمل لملف JSON</span>
-          </button>
+            className="px-5 py-3 rounded-full bg-paper-sunk border border-line text-ink-soft hover:text-ink hover:bg-line/40 font-bold text-sm flex items-center gap-2 transition-all cursor-pointer"
+          >\n            <Download className="w-4 h-4" />\n            <span>تصدير حالة العمل لملف JSON</span>\n          </button>
 
           {/* Import JSON Trigger */}
           <label
             id="label-import-json"
-            className="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-gray-200 hover:text-white hover:bg-slate-800 font-bold text-sm flex items-center gap-2 transition-all cursor-pointer"
+            className="px-5 py-3 rounded-full bg-paper-sunk border border-line text-ink-soft hover:text-ink hover:bg-line/40 font-bold text-sm flex items-center gap-2 transition-all cursor-pointer"
           >
             <Upload className="w-4 h-4" />
-            <span>📤 استيراد حالة العمل السابقة</span>
+            <span>استيراد حالة العمل السابقة</span>
             <input
               id="input-import-json-file"
               type="file"
@@ -442,7 +438,7 @@ export default function SummaryDashboard({
           </label>
         </div>
 
-        <div className="pt-6 border-t border-slate-900 max-w-sm mx-auto">
+        <div className="pt-6 border-t border-line max-w-sm mx-auto">
           <button
             id="btn-reset-evaluation"
             onClick={() => {
@@ -450,7 +446,7 @@ export default function SummaryDashboard({
                 onReset();
               }
             }}
-            className="text-xs font-bold text-red-500/80 hover:text-red-400 transition-all underline cursor-pointer"
+            className="text-xs font-bold text-burgundy/80 hover:text-burgundy transition-all underline cursor-pointer"
           >
             إعادة تعيين وبدء جلسة تقييم فارغة جديدة
           </button>
