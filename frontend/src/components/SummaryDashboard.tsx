@@ -256,11 +256,11 @@ const generateMarkdownReport = () => {
         <div className="bg-paper-raised border border-line p-5 rounded-2xl flex items-center justify-between">
           <div>
             <span className="text-xs text-ink-soft font-bold">فوز النسخة A</span>
-            <h3 className="text-2xl font-display text-amber mt-1 font-bold">
+            <h3 className="text-2xl font-display text-ink mt-1 font-bold">
               {preferredCount.A} <span className="text-sm text-ink-faint font-body font-normal">أقسام</span>
             </h3>
           </div>
-          <div className="p-3 bg-amber/10 text-amber rounded-xl">
+          <div className="p-3 bg-gold/10 text-gold-deep rounded-xl">
             <Award className="w-6 h-6" />
           </div>
         </div>
@@ -268,11 +268,11 @@ const generateMarkdownReport = () => {
         <div className="bg-paper-raised border border-line p-5 rounded-2xl flex items-center justify-between">
           <div>
             <span className="text-xs text-ink-soft font-bold">فوز النسخة B</span>
-            <h3 className="text-2xl font-display text-sage mt-1 font-bold">
+            <h3 className="text-2xl font-display text-ink mt-1 font-bold">
               {preferredCount.B} <span className="text-sm text-ink-faint font-body font-normal">أقسام</span>
             </h3>
           </div>
-          <div className="p-3 bg-sage/10 text-sage rounded-xl">
+          <div className="p-3 bg-gold/10 text-gold-deep rounded-xl">
             <Award className="w-6 h-6" />
           </div>
         </div>
@@ -334,11 +334,7 @@ const generateMarkdownReport = () => {
                     <td className="py-4 px-4 text-center">
                       <span
                         className={`text-xs font-bold px-3 py-1 rounded-full border ${
-                          e.preferredVersion === 'A'
-                            ? 'border-amber text-amber bg-amber/10'
-                            : e.preferredVersion === 'B'
-                            ? 'border-sage text-sage bg-sage/10'
-                            : e.preferredVersion === 'both'
+                          e.preferredVersion === 'A' || e.preferredVersion === 'B' || e.preferredVersion === 'both'
                             ? 'border-gold text-gold-deep bg-gold/10'
                             : 'border-line text-ink-faint bg-paper-sunk'
                         }`}

@@ -248,10 +248,10 @@ export default function App() {
                 return (
                   <div key={s.id} className="font-latin text-xs border border-line px-2.5 py-1 rounded-full text-ink-soft bg-paper-sunk flex items-center gap-1.5">
                     <b className="text-gold-deep">القسم {s.id}</b>
-                    <span className={statusA ? 'text-amber font-bold' : loadingA ? 'text-amber animate-pulse' : 'text-ink-faint'}>
+                    <span className={statusA ? 'text-gold-deep font-bold' : loadingA ? 'text-gold-deep animate-pulse' : 'text-ink-faint'}>
                       A{loadingA ? '⏳' : statusA ? '●' : '○'}
                     </span>
-                    <span className={statusB ? 'text-sage font-bold' : loadingB ? 'text-sage animate-pulse' : 'text-ink-faint'}>
+                    <span className={statusB ? 'text-gold-deep font-bold' : loadingB ? 'text-gold-deep animate-pulse' : 'text-ink-faint'}>
                       B{loadingB ? '⏳' : statusB ? '●' : '○'}
                     </span>
                   </div>

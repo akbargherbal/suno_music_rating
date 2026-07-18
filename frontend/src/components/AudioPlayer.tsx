@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useRef, ChangeEvent } from 'react';
-import { Play, Pause, RotateCcw, Volume2, VolumeX, Sliders, Music } from 'lucide-react';
+import { Play, Pause, RotateCcw, Volume2, VolumeX, Sliders } from 'lucide-react';
 
 interface AudioPlayerProps {
   src: string | null;
@@ -111,11 +111,15 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Version A reads as amber (gold-adjacent), Version B as sage — matching the manuscript palette
+  // Version identity is conveyed by the letter badge below, never by color —
+  // both versions share the same neutral styling so neither reads as "preferred".
   const isA = version === 'A';
-  const versionColors = isA
-    ? { border: 'border-line', text: 'text-amber', chip: 'bg-amber/15 text-amber', play: 'bg-amber text-paper-raised hover:bg-gold-deep' }
-    : { border: 'border-line', text: 'text-sage', chip: 'bg-sage/15 text-sage', play: 'bg-sage text-paper-raised hover:bg-gold-deep' };
+  const versionColors = {
+    border: 'border-line',
+    text: 'text-gold-deep',
+    chip: 'bg-gold/15 text-gold-deep',
+    play: 'bg-gold text-paper-raised hover:bg-gold-deep',
+  };
 
   // Deterministic pseudo-waveform bar heights, seeded by version so A/B look distinct
   const barHeights = Array.from({ length: 14 }, (_, i) => {
@@ -137,8 +141,8 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
 
       <div className="flex items-start justify-between gap-3 mb-3">
         <div className="flex items-center gap-2 min-w-0">
-          <div className={`p-2 rounded-lg bg-paper-raised border border-line ${versionColors.text}`}>
-            <Music className="w-4 h-4" />
+          <div className="w-9 h-9 rounded-lg bg-paper-raised border border-line text-ink font-latin font-bold text-sm flex items-center justify-center shrink-0">
+            {version}
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
@@ -162,7 +166,7 @@ export default function AudioPlayer({ src, filename, version, externalTime, onTi
           <span
             key={i}
             className="waveform-bar"
-            style={{ height: `${h}%`, background: i % 3 === 0 ? `var(--color-${isA ? 'amber' : 'sage'})` : undefined }}
+            style={{ height: `${h}%`, background: i % 3 === 0 ? 'var(--color-gold)' : undefined }}
           />
         ))}
       </div>
