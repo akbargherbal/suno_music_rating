@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "projectId": "mutanabbi_evaluation_v4",
+  "title": "تقييم أداء موجهات المتنبي (واحر قلباه)",
+  "subtitle": "التحليل المقارن بين الطابع التراثي التقليدي والبناء الدرامي الحديث",
+  "poemTitle": "واحرّ قلباه ممن قلبه شبمُ",
+  "brandLetter": "م",
+  "footerNote": "جلسة التقييم والتحليل الصوتي - تم التوليد والتنظيم برمجياً بواسطة مساعد الذكاء الاصطناعي",
+  "ratingScale": {
+    "id": "standard_three_tier",
+    "options": [
+      { "value": "RED", "icon": "🔴" },
+      { "value": "YELLOW", "icon": "🟡" },
+      { "value": "GREEN", "icon": "🟢" }
+    ]
+  },
+  "tagTypes": {
+    "vocal_quality": {
+      "label": "جودة وهندسة الصوت (Vocal Mix)",
+      "ratingLabels": {
+        "RED": "تداخل رقمي سيئ أو ضوضاء في الخلفية تعيق وضوح الصوت",
+        "YELLOW": "صوت بشري مقبول لكنه يعاني من صدى مفرط أو كتم جزئي",
+        "GREEN": "هندسة نظيفة، الفوكالز قريبة وواضحة ومتوازنة تماماً مع الآلات"
+      }
+    },
+    "maqam_performance": {
+      "label": "الأداء النغمي والتمثيل المقامي",
+      "ratingLabels": {
+        "RED": "خروج عن نغمة المقام (نشاز) أو تغيير مقام عشوائي غير مبرر فصيحاً",
+        "YELLOW": "التزام مقبول بنوتة المقام مع وجود بعض الرتابة النغمية",
+        "GREEN": "أداء معبر وحيوي يجسد حزن المقام المتناسق مع النص"
+      }
+    },
+    "arabic_pronunciation": {
+      "label": "سلامة نطق مخارج الحروف العربية",
+      "ratingLabels": {
+        "RED": "إغفال نطق الحركات أو تغيير نطق الحروف (مثل إدغام التنوين الخاطئ)",
+        "YELLOW": "نطق فصيح إجمالاً مع تعثر طفيف في نطق المشدد أو الممدود",
+        "GREEN": "نطق سليم وصحيح 100% لكافة الحركات والشدّات والوقفات الفصحى"
+      }
+    }
+  },
+  "sectionQuestions": [
+    {
+      "id": "genre_drift",
+      "label": "الهروب النغمي والانحراف عن الطابع (Genre Drift)؟",
+      "type": "single_choice",
+      "options": ["no", "yes_sudden"],
+      "optionLabels": {
+        "no": "لا يوجد، انتقال سلس ومتناسق مع الطابع الموسيقي العام",
+        "yes_sudden": "نعم، حدث هروب مفاجئ إلى نمط غريب غير متفق مع البرومبت"
+      },
+      "hasDetails": true,
+      "detailsLabel": "سجل توقيت ونوع الانحراف النغمي بالثواني:"
+    },
+    {
+      "id": "instrumental_clash",
+      "label": "هل طغت الآلات الموسيقية على صوت المغني؟",
+      "type": "boolean",
+      "optionLabels": {
+        "no": "لا، الصوت البشري هو المسيطر بوضوح",
+        "yes": "نعم، الآلات الموسيقية حجبت الكلمات"
+      },
+      "hasDetails": false
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "title": "القسم الأول — استهلال العتاب والحنين",
+      "meta": {
+        "maqam": "صبا (حزين)",
+        "rhythm": "بطيء وهادئ"
+      },
+      "description": "الأبيات الأولى من القصيدة والتي تمثل ذروة الحزن والعتاب البارد.",
+      "watchpoint": "راقب نطق الحركات في كلمتي (شَبِمُ) و (بِجَسَدي) للتأكد من عدم تسكين الحرف الأخير بشكل خاطئ.",
+      "specialQuestion": "هل نجح المغني في تمثيل نبرة الحزن والتحسر المطلوبة في الشطر الأول؟",
+      "lyrics": "واحَرّ قَلباهُ مِمَّن قَلبُهُ شَبِمُ ... وَمَن بِجَسدي وَحالي عِندَهُ سَقَمُ\nمالي أُكَتِّمُ حُبّاً قَد بَرى جَسَدي ... وَتَدَّعي حُبَّ سَيفِ الدَولَةِ الأُمَمُ",
+      "tracks": {
+        "A": {
+          "assigned_filename": "1_A.mp3",
+          "styles": "Traditional Arabic Maqam Saba, classic acoustic oud solo, raw intimate male vocals, minimal natural reverb, closed mic"
+        },
+        "B": {
+          "assigned_filename": "1_B.mp3",
+          "styles": "Cinematic modern Arabesque fusion, sweeping orchestral strings, slow dramatic buildup, spacious chamber reverb, expressive operatic vocal"
+        }
+      },
+      "tags": [
+        {
+          "id": "sec1_tag_vocal",
+          "tag": "vocal_warmth_and_proximity",
+          "expected": "أن يكون صوت المغني قريباً ودافئاً في المايك دون صدى غريب (خاص بـ A)",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec1_tag_maqam",
+          "tag": "saba_emotional_delivery",
+          "expected": "تجسيد شجن مقام الصبا في نبرة الغناء دون اللجوء للصراخ (كلا النسختين)",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec1_tag_arabic",
+          "tag": "tanween_and_harakat",
+          "expected": "مراعاة قواعد الوقف الصحيحة عند كلمة (شَبِمُ) دون إدغام التنوين اللاحق بصورة مشوهة",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "القسم الثاني — الفخر والخيلاء",
+      "meta": {
+        "maqam": "بياتي (وقار وفخر)",
+        "rhythm": "تصاعدي مارش"
+      },
+      "description": "التحول الدرامي في القصيدة من العتاب والشكوى إلى إعلان الهيبة والخيلاء.",
+      "watchpoint": "انتبه لسرعة الأداء في البيت الثاني (الخيل والليل)، وهل استطاع محرك سونو مجاراة الإيقاع السريع للكلمات؟",
+      "specialQuestion": "هل ساهم التوزيع الموسيقي في دعم نبرة الثقة والافتخار في النسخة المختارة؟",
+      "lyrics": "أَنا الَّذي نَظَرَ الأَعمى إِلى أَدَبي ... وَأَسمَعَت كَلِماتي مَن بِهِ صَمَمُ\nالخَيلُ وَاللَيلُ وَالبَيداءُ تَعرِفُني ... وَالسَيفُ وَالرُمحُ وَالقِرطاسُ وَالقَلَمُ",
+      "tracks": {
+        "A": {
+          "assigned_filename": "2_A.mp3",
+          "styles": "Traditional Arabic Maqam Bayati, vibrant rhythm, fast darbuka, classic acoustic oud chord progression, energetic male vocal"
+        },
+        "B": {
+          "assigned_filename": "2_B.mp3",
+          "styles": "Modern epic cinematic orchestral, powerful staccato strings, heavy battle percussion, sweeping horn lines, intense passionate vocal delivery"
+        }
+      },
+      "tags": [
+        {
+          "id": "sec2_tag_vocal_power",
+          "tag": "vocal_authority_and_energy",
+          "expected": "نبرة صوت رجولية قوية تليق بفخر المتنبي دون أن يفقد المغني توازنه الصوتي",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec2_tag_rapid_delivery",
+          "tag": "rapid_lyrics_alignment",
+          "expected": "تزامن مخارج الكلمات المتتالية (الخيل، الليل، البيداء) بسلاسة مع الإيقاع السريع دون ابتلاع الحروف",
+          "type": "arabic_pronunciation"
+        },
+        {
+          "id": "sec2_tag_background_balance",
+          "tag": "instrumental_separation",
+          "expected": "وضوح صوت الإيقاع الحربي في B أو الدربكة في A دون التسبب في تشويش على صوت المؤدي الأساسي",
+          "type": "vocal_quality"
+        }
+      ]
+    }
+  ]
+}
