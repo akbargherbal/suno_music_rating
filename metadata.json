@@ -1,0 +1,6 @@
+{
+  "name": "نموذج تقييم استماع أغاني سونو v4",
+  "description": "منصة تفاعلية لتقييم ومقارنة 6 أقسام من الأغاني المولدة ببرنامج سونو لقصيدة النابغة الذبياني بمقام نهاوند وحجاز وعجم.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
