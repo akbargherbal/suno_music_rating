@@ -1,6 +1,0 @@
-{
-  "name": "Suno Music Rating",
-  "description": "A local, single-page React application for doing structured A/B listening evaluations of Suno-generated song sections.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

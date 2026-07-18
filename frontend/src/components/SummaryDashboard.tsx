@@ -77,72 +77,119 @@ export default function SummaryDashboard({ project, evaluations, onImportState, 
       .filter(Boolean) as { sectionTitle: string; tag: string; flaggedA: boolean; flaggedB: boolean }[];
   });
 
-  const generateMarkdownReport = () => {
-    let md = '# ' + project.title + ' — تقرير التقييم العام\\n\\n';
-    md += '**تاريخ التصدير:** ' + new Date().toISOString().slice(0, 10) + ' | **التقدم الإجمالي:** ' + totalTagsEvaluated + ' من أصل ' + totalTagsCount + ' تاقاً.\\n\\n';
-    md += '---\\n\\n';
+const generateMarkdownReport = () => {
+  let md = "# " + project.title + " — تقرير التقييم العام\n\n";
+  md +=
+    "**تاريخ التصدير:** " +
+    new Date().toISOString().slice(0, 10) +
+    " | **التقدم الإجمالي:** " +
+    totalTagsEvaluated +
+    " من أصل " +
+    totalTagsCount +
+    " تاقاً.\n\n";
+  md += "---\n\n";
 
-    sections.forEach((sec) => {
-      const e = evaluations[sec.id];
-      if (!e) return;
-      const metaStr = Object.entries(sec.meta || {})
-        .map(([k, v]) => k + ': ' + v)
-        .join(', ');
-      md += '## ' + sec.title + (metaStr ? ' (' + metaStr + ')' : '') + '\\n\\n';
+  sections.forEach((sec) => {
+    const e = evaluations[sec.id];
+    if (!e) return;
+    const metaStr = Object.entries(sec.meta || {})
+      .map(([k, v]) => k + ": " + v)
+      .join(", ");
+    md += "## " + sec.title + (metaStr ? " (" + metaStr + ")" : "") + "\n\n";
 
-      if (project.sectionQuestions.length > 0) {
-        md += '### أسئلة التحقق والمقارنة\\n\\n';
-        project.sectionQuestions.forEach((q) => {
-          const answer = e.answers[q.id];
-          md += '#### ' + q.label + '\\n';
-          (['A', 'B'] as const).forEach((v) => {
-            const val = answer?.[v];
-            const label = val ? q.optionLabels?.[val] || val : 'لم تُجب';
-            md += '* **النسخة ' + v + ':** ' + label + '\\n';
-            const details = v === 'A' ? answer?.detailsA : answer?.detailsB;
-            if (details) md += '  - تفاصيل: ' + details + '\\n';
-          });
-          md += '\\n';
+    if (project.sectionQuestions.length > 0) {
+      md += "### أسئلة القسم الفنية\n\n";
+      project.sectionQuestions.forEach((q) => {
+        const answer = e.answers[q.id];
+        md += "#### " + q.label + "\n";
+        (["A", "B"] as const).forEach((v) => {
+          const val = answer?.[v];
+          const label = val ? q.optionLabels?.[val] || val : "لم تُجب";
+          md += "* **النسخة " + v + ":** " + label + "\n";
+          const details = v === "A" ? answer?.detailsA : answer?.detailsB;
+          if (details) md += "  - تفاصيل إضافية: " + details + "\n";
         });
-      }
-
-      if (sec.tags.length > 0) {
-        md += '### تقييم تاقات هندسة الصوت\\n\\n';
-        md += '| التاق في Suno | المتوقع منه | تقييم النسخة A | تقييم النسخة B |\\n';
-        md += '|---|---|---|---|\\n';
-        sec.tags.forEach((tag) => {
-          const r = e.tagEvaluations[tag.id];
-          const typeDef = project.tagTypes[tag.type];
-          const labelFor = (val: string | null) =>
-            val ? typeDef?.ratingLabels[val] || val : 'غير مقيم';
-          md += '| `' + tag.tag + '` | ' + tag.expected + ' | ' + labelFor(r?.ratingA ?? null) + ' | ' + labelFor(r?.ratingB ?? null) + ' |\\n';
-        });
-        md += '\\n';
-      }
-
-      if (sec.specialQuestion) {
-        md += '**سؤال القسم الخاص:** ' + sec.specialQuestion + '\\n';
-        md += '> الإجابة: ' + (e.specialQuestionAnswer || 'لا توجد إجابة مسجلة') + '\\n\\n';
-      }
-
-      md += '* **ملاحظات حرة:**\\n```\\n' + (e.notes || 'لا توجد ملاحظات إضافية') + '\\n```\\n\\n';
-      md += '* **النجاح العام للقسم:** النسخة A: ' + (e.generalSuccessA ? '🟢 ناجحة' : '🔴 غير ناجحة') + ' | النسخة B: ' + (e.generalSuccessB ? '🟢 ناجحة' : '🔴 غير ناجحة') + '\\n';
-      md += '* **النسخة المفضلة:** النسخة ' + (e.preferredVersion?.toUpperCase() || 'غير محددة') + '\\n\\n';
-      md += '---\\n\\n';
-    });
-
-    md += '## إحصائيات التفضيل الإجمالية\\n\\n';
-    md += 'النسخة A مفضلة في (' + preferredCount.A + ') أقسام، النسخة B مفضلة في (' + preferredCount.B + ') أقسام، كلاهما مقبول في (' + preferredCount.both + ') أقسام، ولا شيء مقبول في (' + preferredCount.neither + ') أقسام.\\n\\n';
-
-    if (flaggedTags.length > 0) {
-      md += '## تاقات بحاجة لمراجعة دقيقة (حصلت على أسوأ تقييم)\\n\\n';
-      flaggedTags.forEach((f) => {
-        md += '* **' + f.sectionTitle + '** — التاق: `' + f.tag + '` (في النسخة: ' + [f.flaggedA && 'A', f.flaggedB && 'B'].filter(Boolean).join(' و ') + ')\\n';
+        md += "\n";
       });
     }
 
-    return md;
-  };
+    if (sec.tags.length > 0) {
+      md += "### تقييم التاقات بالتفصيل\n\n";
+      md += "| التاق | المتوقع منه | تقييم A | تقييم B |\n";
+      md += "|---|---|---|---|\n";
+      sec.tags.forEach((tag) => {
+        const r = e.tagEvaluations[tag.id];
+        const typeDef = project.tagTypes[tag.type];
+        const labelFor = (val: string | null) =>
+          val ? typeDef?.ratingLabels[val] || val : "غير مقيم";
+        md +=
+          "| `" +
+          tag.tag +
+          "` | " +
+          tag.expected +
+          " | " +
+          labelFor(r?.ratingA ?? null) +
+          " | " +
+          labelFor(r?.ratingB ?? null) +
+          " |\n";
+      });
+      md += "\n";
+    }
+
+    if (sec.specialQuestion) {
+      md += "**سؤال القسم الخاص:** " + sec.specialQuestion + "\n";
+      md +=
+        "> الإجابة: " +
+        (e.specialQuestionAnswer || "لا توجد إجابة مسجلة") +
+        "\n\n";
+    }
+
+    md +=
+      "* **ملاحظات حرة:**\n```\n" +
+      (e.notes || "لا توجد ملاحظات إضافية") +
+      "\n```\n\n";
+    md +=
+      "* **النجاح العام:** النسخة A: " +
+      (e.generalSuccessA ? "🟢 ناجح" : "🔴 غير ناجح") +
+      " | النسخة B: " +
+      (e.generalSuccessB ? "🟢 ناجح" : "🔴 غير ناجح") +
+      "\n";
+    md +=
+      "* **النسخة المفضلة:** " +
+      (e.preferredVersion?.toUpperCase() || "غير محددة") +
+      "\n\n";
+    md += "---\n\n";
+  });
+
+  md += "## ملخص تفضيل النسخ\n\n";
+  md +=
+    "النسخة A مفضلة في (" +
+    preferredCount.A +
+    ") أقسام، النسخة B مفضلة في (" +
+    preferredCount.B +
+    ") أقسام، كلاهما مقبول في (" +
+    preferredCount.both +
+    ") أقسام، ولا شيء مقبول في (" +
+    preferredCount.neither +
+    ") أقسام.\n\n";
+
+  if (flaggedTags.length > 0) {
+    md += "## تاقات بحاجة لمراجعة فنية دقيقة (حصلت على أسوأ تقييم)\n\n";
+    flaggedTags.forEach((f) => {
+      md +=
+        "* **" +
+        f.sectionTitle +
+        "** — التاق: `" +
+        f.tag +
+        "` في (النسخة: " +
+        [f.flaggedA && "A", f.flaggedB && "B"].filter(Boolean).join(" و ") +
+        ")\n";
+    });
+  }
+
+  return md;
+};
+
 
   const copyToClipboard = () => {
     const md = generateMarkdownReport();

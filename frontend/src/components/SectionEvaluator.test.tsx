@@ -1,23 +1,31 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ComponentProps } from 'react';
 import SectionEvaluator from './SectionEvaluator';
-import { sectionsData, initialEvaluationState } from '../data';
+import { makeProject, makeSectionEvaluation } from '../test/fixtures';
 
-const section = sectionsData[0];
+const project = makeProject();
+const section = project.sections[0];
 
 function makeProps(overrides: Partial<ComponentProps<typeof SectionEvaluator>> = {}) {
-  const evaluation = initialEvaluationState(sectionsData)[section.id];
   return {
+    project,
     section,
-    evaluation,
+    evaluation: makeSectionEvaluation(),
     audioUrls: { A: null, B: null },
     onChange: vi.fn(),
     onNext: vi.fn(),
     onPrev: vi.fn(),
     isFirst: true,
     isLast: false,
+    sectionIndex: 1,
+    sectionCount: project.sections.length,
     ...overrides,
   };
 }
@@ -28,34 +36,26 @@ describe('SectionEvaluator - tag rating', () => {
     const props = makeProps();
     render(<SectionEvaluator {...props} />);
 
-    const firstTag = section.tags[0];
-    await user.click(document.getElementById(`btn-tag-${firstTag.id}-A-GREEN`)!);
+    await user.click(document.getElementById('btn-tag-tag1-A-GREEN')!);
 
     expect(props.onChange).toHaveBeenCalledTimes(1);
     const updated = props.onChange.mock.calls[0][0];
-    const updatedTag = updated.tagEvaluations.find((t: any) => t.id === firstTag.id);
-    expect(updatedTag.ratingA).toBe('GREEN');
-    expect(updatedTag.ratingB).toBeNull(); // version B must be untouched
+    expect(updated.tagEvaluations.tag1.ratingA).toBe('GREEN');
+    expect(updated.tagEvaluations.tag1.ratingB).toBeNull(); // version B untouched
   });
 
   it('clicking the same rating again toggles it back to unrated (null)', async () => {
     const user = userEvent.setup();
-    const firstTag = section.tags[0];
-    let evaluation = initialEvaluationState(sectionsData)[section.id];
-    evaluation = {
-      ...evaluation,
-      tagEvaluations: evaluation.tagEvaluations.map(t =>
-        t.id === firstTag.id ? { ...t, ratingA: 'RED' } : t
-      ),
-    };
+    const evaluation = makeSectionEvaluation({
+      tagEvaluations: { tag1: { ratingA: 'RED', ratingB: null } },
+    });
     const onChange = vi.fn();
     render(<SectionEvaluator {...makeProps({ evaluation, onChange })} />);
 
-    await user.click(document.getElementById(`btn-tag-${firstTag.id}-A-RED`)!);
+    await user.click(document.getElementById('btn-tag-tag1-A-RED')!);
 
     const updated = onChange.mock.calls[0][0];
-    const updatedTag = updated.tagEvaluations.find((t: any) => t.id === firstTag.id);
-    expect(updatedTag.ratingA).toBeNull();
+    expect(updated.tagEvaluations.tag1.ratingA).toBeNull();
   });
 
   it('rating version B does not affect version A ratings for the same tag', async () => {
@@ -63,13 +63,11 @@ describe('SectionEvaluator - tag rating', () => {
     const props = makeProps();
     render(<SectionEvaluator {...props} />);
 
-    const firstTag = section.tags[0];
-    await user.click(document.getElementById(`btn-tag-${firstTag.id}-B-YELLOW`)!);
+    await user.click(document.getElementById('btn-tag-tag1-B-YELLOW')!);
 
     const updated = props.onChange.mock.calls[0][0];
-    const updatedTag = updated.tagEvaluations.find((t: any) => t.id === firstTag.id);
-    expect(updatedTag.ratingB).toBe('YELLOW');
-    expect(updatedTag.ratingA).toBeNull();
+    expect(updated.tagEvaluations.tag1.ratingB).toBe('YELLOW');
+    expect(updated.tagEvaluations.tag1.ratingA).toBeNull();
   });
 });
 
@@ -81,9 +79,7 @@ describe('SectionEvaluator - preferred version & success toggles', () => {
 
     await user.click(document.getElementById('btn-preferred-B')!);
 
-    expect(props.onChange).toHaveBeenCalledWith(
-      expect.objectContaining({ preferredVersion: 'B' })
-    );
+    expect(props.onChange).toHaveBeenCalledWith(expect.objectContaining({ preferredVersion: 'B' }));
   });
 
   it('toggles generalSuccessA independently of generalSuccessB', async () => {
@@ -96,6 +92,23 @@ describe('SectionEvaluator - preferred version & success toggles', () => {
     const updated = props.onChange.mock.calls[0][0];
     expect(updated.generalSuccessA).toBe(false);
     expect(updated.generalSuccessB).toBe(true); // untouched, still default
+  });
+});
+
+describe('SectionEvaluator - dynamic section questions', () => {
+  it('renders a question option per project.sectionQuestions and records an answer', async () => {
+    const user = userEvent.setup();
+    const props = makeProps();
+    render(<SectionEvaluator {...props} />);
+
+    expect(screen.getByText('هل يوجد انقطاع؟')).toBeInTheDocument();
+
+    const radios = screen.getAllByDisplayValue('yes');
+    await user.click(radios[0]); // version A's "yes" radio
+
+    const updated = props.onChange.mock.calls[0][0];
+    expect(updated.answers.q1.A).toBe('yes');
+    expect(updated.answers.q1.B).toBeNull();
   });
 });
 
@@ -140,5 +153,14 @@ describe('SectionEvaluator - notes & navigation', () => {
 
     const total = section.tags.length;
     expect(screen.getByText(new RegExp(`تم تقييم 0 من أصل ${total} تاقات`))).toBeInTheDocument();
+  });
+
+  it('reflects an already-rated tag in the footer count', () => {
+    const evaluation = makeSectionEvaluation({
+      tagEvaluations: { tag1: { ratingA: 'GREEN', ratingB: null } },
+    });
+    render(<SectionEvaluator {...makeProps({ evaluation })} />);
+
+    expect(screen.getByText(/تم تقييم 1 من أصل 1 تاقات/)).toBeInTheDocument();
   });
 });

@@ -280,7 +280,7 @@ export default function App() {
                       const isActive = s.id === activeSectionId;
                       const hasFiles = audioManifest[`${s.id}_A`] && audioManifest[`${s.id}_B`];
                       const ratedTagsCount = evaluations[s.id]
-                        ? Object.values(evaluations[s.id].tagEvaluations).filter((t) => t.ratingA !== null || t.ratingB !== null).length
+                        ? Object.values(evaluations[s.id].tagEvaluations).filter((t: any) => t.ratingA !== null || t.ratingB !== null).length
                         : 0;
                       const totalTags = s.tags.length;
                       const isFullyEvaluated = ratedTagsCount === totalTags;
