@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "projectId": "nabigha_v4",
+  "title": "ديوان تقييم النابغة",
+  "subtitle": "استماع نقدي مقارن — سونو الإصدار الرابع",
+  "poemTitle": "قصيدة يا دار ميّة — النابغة الذبياني",
+  "brandLetter": "ن",
+  "footerNote": "مشروع تقييم قصيدة النابغة الذبياني — سونو الإصدار الرابع · 2026",
+  "ratingScale": {
+    "id": "traffic_light",
+    "options": [
+      {
+        "value": "RED",
+        "icon": "🔴"
+      },
+      {
+        "value": "YELLOW",
+        "icon": "🟡"
+      },
+      {
+        "value": "GREEN",
+        "icon": "🟢"
+      }
+    ]
+  },
+  "tagTypes": {
+    "vocals": {
+      "label": "فوكال",
+      "ratingLabels": {
+        "RED": "صاخب مزعج",
+        "YELLOW": "نعسان خامل",
+        "GREEN": "معتدل جميل"
+      }
+    },
+    "instruments": {
+      "label": "آلات",
+      "ratingLabels": {
+        "RED": "فوضى/مزعج",
+        "YELLOW": "خامل/غايب",
+        "GREEN": "متوازن"
+      }
+    }
+  },
+  "sectionQuestions": [
+    {
+      "id": "drift",
+      "label": "هل حصل انحراف عن المقام؟",
+      "type": "single_choice",
+      "options": [
+        "no",
+        "yes",
+        "not_sure"
+      ],
+      "optionLabels": {
+        "no": "لا",
+        "yes": "نعم",
+        "not_sure": "غير متأكد"
+      },
+      "hasDetails": true,
+      "detailsLabel": "تفاصيل الانحراف (إن وجد)"
+    },
+    {
+      "id": "transitions",
+      "label": "الانتقالات بين المقاطع",
+      "type": "single_choice",
+      "options": [
+        "smooth",
+        "sudden",
+        "not_sure"
+      ],
+      "optionLabels": {
+        "smooth": "سلسة",
+        "sudden": "مفاجئة",
+        "not_sure": "غير متأكد"
+      },
+      "hasDetails": true,
+      "detailsLabel": "تفاصيل الانتقال (إن وجد)"
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "title": "القسم 1 — الأطلال والحنين",
+      "meta": {
+        "maqam": "نهاوند"
+      },
+      "description": "الأطلال والحنين (مقام نهاوند) — بدون اسم المقام بالتاقات",
+      "watchpoint": "هذا القسم من الأقرب للدريفت (نهاوند قريب من السلم الغربي). لو صار دريفت، هذا أول دليل نحتاجه نرجّع اسم المقام بالتاق المحوري.",
+      "specialQuestion": null,
+      "lyrics": "[Intro | single clean electric guitar | close-mic'd, plate reverb, short decay]\nيَا دَارَ مَيَّةَ بِالْعَلْيَاءِ فَالسَّنَدِ...\nأَقْوَتْ وَطَالَ عَلَيْهَا سَالِفُ الْأَبَدِ...\n\n[Verse 1 | forward clear vocals | sparse instrumentation]\nيَا دَارَ مَيَّةَ بِالْعَلْيَاءِ فَالسَّنَدِ...\nأَقْوَتْ وَطَالَ عَلَيْهَا سَالِفُ الْأَبَدِ...\n\nوَقَفْتُ فِيهَا أُصَيْلَانًا أُسَائِلُهَا\nعَيَّتْ جَوَابًا وَمَا بِالرَّبْعِ مِنْ أَحَدِ...\n\nإِلَّا الْأَوَارِيَّ لَأْيًا مَا أُبَيِّنُهَا\nوَالنُّؤْيَ كَالْحَوْضِ بِالْمَظْلُومَةِ الْجَلَدِ...\n\nرُدَّتْ عَلَيْهِ أَقَاصِيهِ وَلَبَّدَهُ...\nضَرْبُ الْوَلِيدَةِ بِالْمِسْحَاةِ فِي الثَّأَدِ...\n\nخَلَّتْ سَبِيلَ أَتِيٍّ كَانَ يَحْبِسُهُ...\nوَرَفَّعَتْهُ إِلَى السِّجْفَيْنِ فَالنَّضَدِ...\n\n[Verse 2]\nأَضْحَتْ خَلَاءً وَأَضْحَى أَهْلُهَا احْتَمَلُوا...\nأَخْنَى عَلَيْهَا الَّذِي أَخْنَى عَلَى لُبَدِ...\n[guitars & strings swell]\n\nفَعَدِّ عَمَّا تَرَى إِذْ لَا ارْتِجَاعَ لَهُ\nوَانْمِ الْقُتُودَ عَلَى عَيْرَانَةٍ أُجُدِ...\n\nمَقْذُوفَةٍ بِدَخِيسِ النَّحْضِ بَازِلُهَا\nلَهُ صَرِيفٌ صَرِيفُ الْقَعْوِ بِالْمَسَدِ...\n\n[Chorus]\nأَضْحَتْ خَلَاءً وَأَضْحَى أَهْلُهَا احْتَمَلُوا...\nأَخْنَى عَلَيْهَا الَّذِي أَخْنَى عَلَى لُبَدِ...\n[instrumental pass | fading to near-silence]\n\n[Outro buffer | repeat closing verse | softer, fading]\nمَقْذُوفَةٍ بِدَخِيسِ النَّحْضِ بَازِلُهَا\nلَهُ صَرِيفٌ صَرِيفُ الْقَعْوِ بِالْمَسَدِ...",
+      "tracks": {
+        "A": {
+          "clip_id": "f7866ca6-82b5-4b19-80af-078cd1cf847d",
+          "original_title": "القسم 1 — الأطلال والحنين (مقام نهاوند)",
+          "assigned_filename": "القسم 1  الأطلال والحنين مقام نهاوند_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"يَا دَارَ مَيَّةَ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", female vocals only, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T08:57:27.254Z",
+          "downloaded_at": "2026-07-18 13:42:12"
+        },
+        "B": {
+          "clip_id": "52174764-63d9-4e2e-901c-e7ad33ca8d40",
+          "original_title": "القسم 1 — الأطلال والحنين (مقام نهاوند)",
+          "assigned_filename": "القسم 1  الأطلال والحنين مقام نهاوند_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"يَا دَارَ مَيَّةَ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", female vocals only, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T08:57:27.254Z",
+          "downloaded_at": "2026-07-18 13:42:09"
+        }
+      },
+      "tags": [
+        {
+          "id": "1_1",
+          "tag": "[Intro] غيتار نظيف",
+          "expected": "يفتتح بهدوء ووضوح، بدون أي حس روك",
+          "type": "instruments"
+        },
+        {
+          "id": "1_2",
+          "tag": "[Verse 1 | forward clear vocals]",
+          "expected": "فوكالز واضحة أمامية من أول لحظة",
+          "type": "vocals"
+        },
+        {
+          "id": "1_3",
+          "tag": "[Verse 2] (التاق الوسطي [guitars & strings swell])",
+          "expected": "تصاعد طبيعي بدون أمر مباشر — هل ارتفع لحاله بشكل مناسب؟",
+          "type": "instruments"
+        },
+        {
+          "id": "1_4",
+          "tag": "[Chorus] + [instrumental pass | fading to near-silence]",
+          "expected": "يخفت تدريجيًا لا فجأة",
+          "type": "instruments"
+        },
+        {
+          "id": "1_5",
+          "tag": "[Outro buffer]",
+          "expected": "يقفل ناعم",
+          "type": "vocals"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "القسم 2 — مطاردة الثور الوحشي",
+      "meta": {
+        "maqam": "حجاز"
+      },
+      "description": "مطاردة الثور الوحشي (مقام حجاز)",
+      "watchpoint": "هذا القسم الأهم لفحصه لأن فيه أعلى نقطة توتر بالقصيدة (الصيد)، أعلى احتمال لانفجار غير مرغوب (انتقالات مفاجئة).",
+      "specialQuestion": null,
+      "lyrics": "[Intro | single clean electric guitar | close-mic'd, plate reverb, short decay]\nكَأَنَّ رَحْلِي وَقَدْ زَالَ النَّهَارُ بِنَا\nيَوْمَ الْجَلِيلِ عَلَى مُسْتَأْنِسٍ وَحَدِ...\n\n[Verse 1 | forward clear vocals | sparse instrumentation]\nكَأَنَّ رَحْلِي وَقَدْ زَالَ النَّهَارُ بِنَا\nيَوْمَ الْجَلِيلِ عَلَى مُسْتَأْنِسٍ وَحَدِ...\n\nمِنْ وَحْشِ وَجْرَةَ مَوْشِيٍّ أَكَارِعُهُ...\nطَاوِي الْمَصِيرِ كَسَيْفِ الصَّيْقَلِ الْفَرَدِ...\n\nفَارْتَاعَ مِنْ صَوْتِ كَلَّابٍ فَبَاتَ لَهُ\nطَوْعَ الشَّوَامِتِ مِنْ خَوْفٍ وَمِنْ صَرَدِ...\n\nسَرَتْ عَلَيْهِ مِنَ الْجَوْزَاءِ سَارِيَةٌ...\nتُزْجِي الشَّمَالُ عَلَيْهِ جَامِدَ الْبَرَدِ...\n\n[Verse 2]\nفَبَثَّهُنَّ عَلَيْهِ وَاسْتَمَرَّ بِهِ\nصُمْعُ الْكُعُوبِ بَرِيئَاتٌ مِنَ الْحَرَدِ...\n\nوَكَانَ ضُمْرَانُ مِنْهُ حَيْثُ يُوزِعُهُ...\nطَعْنَ الْمُعَارِكِ عِنْدَ الْمُحْجَرِ النَّجُدِ...\n\nشَكَّ الْفَرِيصَةَ بِالْمِدْرَى فَأَنْفَذَهَا...\n[distorted guitar stab]\nطَعْنَ الْمُبَيْطِرِ إِذْ يَشْفِي مِنَ الْعَضَدِ...\n\nكَأَنَّهُ خَارِجًا مِنْ جَنْبِ صَفْحَتِهِ\nسَفُّودُ شَرْبٍ نَسَوْهُ عِنْدَ مُفْتَأَدِ...\n\nفَظَلَّ يَعْجُمُ أَعْلَى الرَّوْقِ مُنْقَبِضًا\nفِي حَالِكِ ٱلَّوۡنِ صَدْقٍ غَيْرِ ذِي أَوَدِ...\n\nلَمَّا رَأَى وَاشِقٌ إِقْعَاصَ صَاحِبِهِ\nوَلَا سَبِيلَ إِلَى عَقْلٍ وَلَا قَوَدِ...\n\n[Bridge]\nقَالَتْ لَهُ النَّفْسُ إِنِّي لَا أَرَى طَمَعًا\nوَإِنَّ مَوْلَاكَ لَمْ يَسْلَمْ وَلَمْ يَصِدِ...\n\n[Outro buffer | repeat closing verse | softer, fading]\nقَالَتْ لَهُ النَّفْسُ إِنِّي لَا أَرَى طَمَعًا\nوَإِنَّ مَوْلَاكَ لَمْ يَسْلَمْ وَلَمْ يَصِدِ...",
+      "tracks": {
+        "A": {
+          "clip_id": "4763e279-365c-4f74-bc36-32c5e6e5f465",
+          "original_title": "القسم 2 — مطاردة الثور الوحشي (مقام حجاز)",
+          "assigned_filename": "القسم 2  مطاردة الثور الوحشي مقام حجاز_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"كَأَنَّ رَحْلِي\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Hijaz with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", female pop, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T08:58:48.368Z",
+          "downloaded_at": "2026-07-18 13:42:06"
+        },
+        "B": {
+          "clip_id": "ade425d1-a560-44b6-9ddc-108d94baf7b0",
+          "original_title": "القسم 2 — مطاردة الثور الوحشي (مقام حجاز)",
+          "assigned_filename": "القسم 2  مطاردة الثور الوحشي مقام حجاز_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"كَأَنَّ رَحْلِي\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Hijaz with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", female pop, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T08:58:48.368Z",
+          "downloaded_at": "2026-07-18 13:42:03"
+        }
+      },
+      "tags": [
+        {
+          "id": "2_1",
+          "tag": "[Intro]",
+          "expected": "نفس التوقيع الصوتي المعتاد",
+          "type": "instruments"
+        },
+        {
+          "id": "2_2",
+          "tag": "[Verse 1 | forward clear vocals]",
+          "expected": "واضحة أمامية",
+          "type": "vocals"
+        },
+        {
+          "id": "2_3",
+          "tag": "[Verse 2] (الذروة [distorted guitar stab] عند 'شكّ الفريصة')",
+          "expected": "هل الطعنة صارت إحساسها بس عند تلك اللحظة بالذات، ولا الأداء كله صار متوتر من بداية Verse 2؟",
+          "type": "instruments"
+        },
+        {
+          "id": "2_4",
+          "tag": "[Bridge] (بدون وصف)",
+          "expected": "هل هدأ لحاله من محتوى الكلام (تأمل النفس) بدون أمر صريح؟",
+          "type": "vocals"
+        },
+        {
+          "id": "2_5",
+          "tag": "[Outro buffer]",
+          "expected": "يقفل ناعم",
+          "type": "instruments"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "القسم 3 — المديح وتشبيه سليمان",
+      "meta": {
+        "maqam": "عجم"
+      },
+      "description": "المديح وتشبيه سليمان (مقام عجم) — الأطول، تاقان مسموحان",
+      "watchpoint": "سؤال خاص بهذا القسم: هو الـ baseline (بدون حشو) — هل حسّيته طويل/ممل، أو الطول مبرر بتنوع المشاهد جواه؟",
+      "specialQuestion": "هو الـ baseline (بدون حشو) — هل حسّيته طويل/ممل، أو الطول مبرر بتنوع المشاهد جواه؟",
+      "lyrics": "[Intro | single clean electric guitar | close-mic'd, plate reverb, short decay]\nفَتِلْكَ تُبْلِغُنِي النُّعْمَانَ إِنَّ لَهُ\nفَضْلًا عَلَى النَّاسِ فِي الْأَدْنَى وَفِي الْبَعَدِ...\n\n[Verse 1 | forward clear vocals | sparse instrumentation]\nفَتِلْكَ تُبْلِغُنِي النُّعْمَانَ إِنَّ لَهُ\nفَضْلًا عَلَى النَّاسِ فِي الْأَدْنَى وَفِي الْبَعَدِ...\n\nوَلَا أَرَى فَاعِلًا فِي النَّاسِ يُشْبِهُهُ...\nوَلَا أُحَاشِي مِنَ الْأَقْوَامِ مِنْ أَحَدِ...\n\n[Verse 2]\nإِلَّا سُلَيْمَانُ إِذْ قَالَ الْإِلَهُ لَهُ...\n[strings swell]\nقُمْ فِي الْبَرِيَّةِ فَاحْدُدْهَا عَنِ الْفَنَدِ...\n\nوَخَيِّسِ الْجِنَّ إِنِّي قَدْ أَذِنْتُ لَهُمْ\nيَبْنُونَ تَدْمُرَ بِالصُّفَّاحِ وَالْعَمَدِ...\n\nفَمَنْ أَطَاعَكَ فَانْفَعْهُ بِطَاعَتِهِ\nكَمَا أَطَاعَكَ وَادْلُلْهُ عَلَى الرَّشَدِ...\n\nوَمَنْ عَصَاكَ فَعَاقِبْهُ مُعَاقَبَةً\nتَنْهَى الظَّلُومَ وَلَا تَقْعُدْ عَلَى ضَمَدِ...\n\nإِلَّا لِمِثْلِكَ أَوْ مَنْ أَنْتَ سَابِقُهُ...\nسَبْقَ الْجَوَادِ إِذَا اسْتَوْلَى عَلَى الْأَمَدِ...\n\nأَعْطَى لِفَارِهَةٍ حُلْوٍ تَوَابِعُهَا\nمِنَ الْمَوَاهِبِ لَا تُعْطَى عَلَى نَكَدِ...\n\n[Verse 3]\nالْوَاهِبُ الْمِئَةَ الْمَعْكَاءَ زَيَّنَهَا\nسَعْدَانُ تُوضِحَ فِي أَوْبَارِهَا ٱلِّبَدِ...\n\nوَالرَّاكِضَاتِ ذُيُولَ الرَّيْطِ فَنَّقَهَا\nبَرْدُ الْهَوَاجِرِ كَالْغِزْلَانِ بِالْجَرَدِ...\n\nوَالْخَيْلَ تَمْزَعُ غَرْبًا فِي أَعِنَّتِهَا\nكَالطَّيْرِ تَنْجُو مِنَ الشُّؤْبُوبِ ذِي الْبَرَدِ...\n\nوَالْأُدْمَ قَدْ خُيِّسَتْ فُتْلًا مَرَافِقُهَا\n[guitar resolving into distorted chord]\nمَشْدُودَةً بِرِحَالِ الْحِيرَةِ الْجُدُدِ...\n\n[Outro buffer | repeat closing verse | softer, fading]\nوَالْأُدْمَ قَدْ خُيِّسَتْ فُتْلًا مَرَافِقُهَا\nمَشْدُودَةً بِرِحَالِ الْحِيرَةِ الْجُدُدِ...",
+      "tracks": {
+        "A": {
+          "clip_id": "e081b027-b945-400b-bd6b-9ead4c0da75a",
+          "original_title": "القسم 3 — المديح وتشبيه سليمان (مقام عجم)",
+          "assigned_filename": "القسم 3  المديح وتشبيه سليمان مقام عجم_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَتِلْكَ تُبْلِغُنِي\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:00:39.408Z",
+          "downloaded_at": "2026-07-18 13:42:00"
+        },
+        "B": {
+          "clip_id": "e639460b-096b-405c-b868-7c77b8706fdc",
+          "original_title": "القسم 3 — المديح وتشبيه سليمان (مقام عجم)",
+          "assigned_filename": "القسم 3  المديح وتشبيه سليمان مقام عجم_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَتِلْكَ تُبْلِغُنِي\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:00:39.408Z",
+          "downloaded_at": "2026-07-18 13:41:57"
+        }
+      },
+      "tags": [
+        {
+          "id": "3_1",
+          "tag": "[Verse 1 | forward clear vocals]",
+          "expected": "واضحة أمامية",
+          "type": "vocals"
+        },
+        {
+          "id": "3_2",
+          "tag": "[Verse 2] + [strings swell] عند دخول قصة سليمان",
+          "expected": "دخول الأوتار يحس كبداية مشهد جديد، بدون مبالغة",
+          "type": "instruments"
+        },
+        {
+          "id": "3_3",
+          "tag": "[Verse 3] + [guitar resolving into distorted chord] عند آخر بيت",
+          "expected": "ختام محترم قبل الـ Outro، مو انفجار",
+          "type": "instruments"
+        },
+        {
+          "id": "3_4",
+          "tag": "[Outro buffer]",
+          "expected": "يقفل ناعم",
+          "type": "vocals"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "القسم 4 — قصة الحمام",
+      "meta": {
+        "maqam": "عجم"
+      },
+      "description": "قصة الحمام (مقام عجم) — فيه Chorus مكرر + فواصل موسيقية (حشو فعلي)",
+      "watchpoint": "راقب خصوصًا الانتقال من الفاصل الموسيقي رجوع للـ Chorus repeat، وهل حس الحشو مصطنع أو طبيعي.",
+      "specialQuestion": null,
+      "lyrics": "[Intro | single clean electric guitar | close-mic'd, plate reverb, short decay]\nأُحْكُمْ كَحُكْمِ فَتَاةِ الْحَيِّ إِذْ نَظَرَتْ\nإِلَى حَمَامِ سِرَاعٍ وَارِدِ الثَّمَدِ...\n\n[Verse 1 | forward clear vocals | sparse instrumentation]\nأُحْكُمْ كَحُكْمِ فَتَاةِ الْحَيِّ إِذْ نَظَرَتْ\nإِلَى حَمَامِ سِرَاعٍ وَارِدِ الثَّمَدِ...\n\nيَحُفُّهُ جَانِبَا نِيقٍ وَتُتْبِعُهُ...\nمِثْلَ الزُّجَاجَةِ لَمْ تُكْحَلْ مِنَ الرَّمَدِ...\n\n[Chorus]\nقَالَتْ أَلَا لَيْتَمَا هَذَا الْحَمَامُ لَنَا...\nإِلَى حَمَامَتِنَا وَنِصْفُهُ فَقَدِ...\n\n[Instrumental interlude | light strings and guitar only | no drums | 4 bars]\n\n[Chorus repeat]\nقَالَتْ أَلَا لَيْتَمَا هَذَا الْحَمَامُ لَنَا...\nإِلَى حَمَامَتِنَا وَنِصْفُهُ فَقَدِ...\n\n[Verse 2]\nفَحَسَّبُوهُ فَأَلْفَوْهُ كَمَا حَسَبَتْ\nتِسْعًا وَتِسْعِينَ لَمْ تَنْقُصْ وَلَمْ تَزِدِ...\n\nفَكَمَّلَتْ مِئَةً فِيهَا حَمَامَتُهَا\nوَأَسْرَعَتْ حِسْبَةً فِي ذَلِكَ الْعَدَدِ...\n\n[Instrumental outro | strings and guitar fading | 4 bars]\n\n[Outro buffer | repeat closing verse | softer, fading]\nفَكَمَّلَتْ مِئَةً فِيهَا حَمَامَتُهَا\nوَأَسْرَعَتْ حِسْبَةً فِي ذَلِكَ الْعَدَدِ...",
+      "tracks": {
+        "A": {
+          "clip_id": "2077a6b0-f3fc-4a23-ab69-0ad88acb4aa5",
+          "original_title": "القسم 4 — قصة الحمام (مقام عجم)",
+          "assigned_filename": "القسم 4  قصة الحمام مقام عجم_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"أُحْكُمْ كَحُكْمِ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", smooth female voice, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:02:01.659Z",
+          "downloaded_at": "2026-07-18 13:41:54"
+        },
+        "B": {
+          "clip_id": "7a67ccc5-9d9a-476b-b830-583aaae02c01",
+          "original_title": "القسم 4 — قصة الحمام (مقام عجم)",
+          "assigned_filename": "القسم 4  قصة الحمام مقام عجم_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"أُحْكُمْ كَحُكْمِ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", smooth female voice, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:02:01.659Z",
+          "downloaded_at": "2026-07-18 13:41:51"
+        }
+      },
+      "tags": [
+        {
+          "id": "4_1",
+          "tag": "[Verse 1 | forward clear vocals]",
+          "expected": "واضحة أمامية",
+          "type": "vocals"
+        },
+        {
+          "id": "4_2",
+          "tag": "[Chorus] (بدون vocals lifted slightly)",
+          "expected": "هل ارتفع بشكل طبيعي مناسب للحن المتكرر بدون أمر صريح؟",
+          "type": "vocals"
+        },
+        {
+          "id": "4_3",
+          "tag": "[Instrumental interlude | 4 bars]",
+          "expected": "فاصل خفيف بدون طبول، يحس كتنفّس",
+          "type": "instruments"
+        },
+        {
+          "id": "4_4",
+          "tag": "[Chorus repeat] (بدون slightly fuller strings)",
+          "expected": "هل التكرار صار له تنوع طبيعي، ولا نسخة طبق الأصل مملة؟",
+          "type": "vocals"
+        },
+        {
+          "id": "4_5",
+          "tag": "[Verse 2] (بدون narrative pacing)",
+          "expected": "يرجع لجو الحكاية العادي",
+          "type": "vocals"
+        },
+        {
+          "id": "4_6",
+          "tag": "[Instrumental outro | 4 bars] + [Outro buffer]",
+          "expected": "يقفل ناعم",
+          "type": "instruments"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "القسم 5 — القسم والاعتذار",
+      "meta": {
+        "maqam": "نهاوند"
+      },
+      "description": "القسم والاعتذار (مقام نهاوند) — فيه Refrain (حشو فعلي، ما تغيّر بv4)",
+      "watchpoint": "نهاوند (زي القسم 1). لو صار دريفت بالقسمين معًا، هذا يرجّح فرضية نهاوند تحديدًا محتاج اسم المقام بالتاق وليس صدفة.",
+      "specialQuestion": null,
+      "lyrics": "[Intro | single clean electric guitar | close-mic'd, plate reverb, short decay]\nفَلَا لَعَمْرُ الَّذِي مَسَّحْتُ كَعْبَتَهُ...\nوَمَا هُرِيقَ عَلَى الْأَنْصَابِ مِنْ جَسَدِ...\n\n[Verse 1 | forward clear vocals | sparse instrumentation]\nفَلَا لَعَمْرُ الَّذِي مَسَّحْتُ كَعْبَتَهُ...\nوَمَا هُرِيقَ عَلَى الْأَنْصَابِ مِنْ جَسَدِ...\n\nوَالْمُؤْمِنِ الْعَائِذَاتِ الطَّيْرَ تَمْسَحُهَا\nرُكْبَانُ مَكَّةَ بَيْنَ الْغِيلِ وَالسَّعَدِ...\n\nمَا إِنْ أَتَيْتُ بِشَيْءٍ أَنْتَ تَكْرَهُهُ...\nإِذَنْ فَلَا رَفَعَتْ سَوْطِي إِلَيَّ يَدِي...\n\nإِذَنْ فَعَاقَبَنِي رَبِّي مُعَاقَبَةً\nقَرَّتْ بِهَا عَيْنُ مَنْ يَأْتِيكَ بِالْفَنَدِ...\n\n[Verse 2 | vocals intimate, direct]\nهَذَا لِأَبْرَأَ مِنْ قَوْلٍ قُذِفْتُ بِهِ\nطَارَتْ نَوَافِذُهُ حَرًّا عَلَى كَبِدِي...\n\nأُنْبِئْتُ أَنَّ أَبَا قَابُوسَ أَوْعَدَنِي\n[distorted guitar stab, low and heavy]\nوَلَا قَرَارَ عَلَى زَأْرٍ مِنَ الْأَسَدِ...\n\nمَهْلًا فِدَاءٌ لَكَ الْأَقْوَامُ كُلُّهُمُ\nوَمَا أُثَمِّرُ مِنْ مَالٍ وَمِنْ وَلَدِ...\n\nلَا تَقْذِفَنِّي بِرُكْنٍ لَا كِفَاءَ لَهُ\nوَإِنْ تَأَثَّفَكَ الْأَعْدَاءُ بِالرِّفَدِ...\n\n[Refrain | oath line repeated for weight | vocals fully forward | instrumentation drops out almost entirely]\nفَلَا لَعَمْرُ الَّذِي مَسَّحْتُ كَعْبَتَهُ...\n[single low string note, sustained]\nوَمَا هُرِيقَ عَلَى الْأَنْصَابِ مِنْ جَسَدِ...\n[silence, then soft guitar chord]\n\n[Outro buffer | repeat closing verse | softer, fading]\nلَا تَقْذِفَنِّي بِرُكْنٍ لَا كِفَاءَ لَهُ\nوَإِنْ تَأَثَّفَكَ الْأَعْدَاءُ بِالرِّفَدِ...",
+      "tracks": {
+        "A": {
+          "clip_id": "6ba2b72f-5d1f-4648-a882-a66c17fc40ba",
+          "original_title": "القسم 5 — القسم والاعتذار (مقام نهاوند)",
+          "assigned_filename": "القسم 5  القسم والاعتذار مقام نهاوند_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَلَا لَعَمْرُ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:03:52.185Z",
+          "downloaded_at": "2026-07-18 13:41:48"
+        },
+        "B": {
+          "clip_id": "ae03f6a3-779d-4bb6-a50d-eaa237c496c2",
+          "original_title": "القسم 5 — القسم والاعتذار (مقام نهاوند)",
+          "assigned_filename": "القسم 5  القسم والاعتذار مقام نهاوند_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَلَا لَعَمْرُ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:03:52.185Z",
+          "downloaded_at": "2026-07-18 13:41:45"
+        }
+      },
+      "tags": [
+        {
+          "id": "5_1",
+          "tag": "[Verse 1 | forward clear vocals]",
+          "expected": "واضحة أمامية",
+          "type": "vocals"
+        },
+        {
+          "id": "5_2",
+          "tag": "[Verse 2 | vocals intimate, direct]",
+          "expected": "نبرة أقرب/أهدأ من Verse 1 — هل الفرق واضح ومقصود، ولا حس الآلات صار عشوائي بدون التوجيه المحذوف؟",
+          "type": "vocals"
+        },
+        {
+          "id": "5_3",
+          "tag": "[distorted guitar stab, low and heavy] عند 'أبا قابوس أوعدني'",
+          "expected": "ضربة واحدة ثقيلة بلحظتها بالضبط",
+          "type": "instruments"
+        },
+        {
+          "id": "5_4",
+          "tag": "[Refrain] (لم يُمس)",
+          "expected": "القسم اللي فيه أعلى احتمال دريفت — راقب هنا بالذات",
+          "type": "vocals"
+        },
+        {
+          "id": "5_5",
+          "tag": "[Outro buffer]",
+          "expected": "يقفل ناعم",
+          "type": "instruments"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "القسم 6 — تشبيه الفرات والثناء",
+      "meta": {
+        "maqam": "عجم"
+      },
+      "description": "ختام تشبيه الفرات والثناء (مقام عجم) — ثلاث لحظات فوكالز حقيقية مختلفة",
+      "watchpoint": "ختام كامل الأغنية — هل حس كخاتمة مُرضية؟",
+      "specialQuestion": null,
+      "lyrics": "[Intro | single clean electric guitar | close-mic'd, plate reverb, short decay]\nفَمَا الْفُرَاتُ إِذَا هَبَّ الرِّيَاحُ لَهُ...\nتَرْمِي أَوَاذِيُّهُ الْعِبْرَيْنِ بِالزَّبَدِ...\n\n[Verse 1 | forward clear vocals]\nفَمَا الْفُرَاتُ إِذَا هَبَّ الرِّيَاحُ لَهُ...\nتَرْمِي أَوَاذِيُّهُ الْعِبْرَيْنِ بِالزَّبَدِ...\n\nيَمُدُّهُ كُلُّ وَادٍ مُتْرَعٍ لَجِبٍ\nفِيهِ رُكَامٌ مِنَ الْيَنْبُوتِ وَالْخَضَدِ...\n\nيَظَلُّ مِنْ خَوْفِهِ الْمَلَّاحُ مُعْتَصِمًا\nبِالْخَيْزُرَانَةِ بَعْدَ الْأَيْنِ وَالنَّجَدِ...\n\n[Verse 2 | vocals triumphant]\nيَوْمًا بِأَجْوَدَ مِنْهُ سَيْبَ نَافِلَةٍ\nوَلَا يَحُولُ عَطَاءُ الْيَوْمِ دُونَ غَدِ...\n\nهَذَا الثَّنَاءُ فَإِنْ تَسْمَعْ بِهِ حَسَنًا\nفَلَمْ أُعَرِّضْ أَبَيْتَ ٱلَّعۡنَ بِالصَّفَدِ...\n\nهَا إِنَّ ذِي عِذْرَةٌ إِلَّا تَكُنْ نَفَعَتْ\nفَإِنَّ صَاحِبَهَا مُشَارِكُ النَّكَدِ...\n\n[Final Chorus | vocals cutting through]\nهَذَا الثَّنَاءُ فَإِنْ تَسْمَعْ بِهِ حَسَنًا...\nفَلَمْ أُعَرِّضْ أَبَيْتَ ٱلَّعۡنَ بِالصَّفَدِ...\nهَا إِنَّ ذِي عِذْرَةٌ إِلَّا تَكُنْ نَفَعَتْ...\nفَإِنَّ صَاحِبَهَا مُشَارِكُ النَّكَدِ...\n[guitars & strings surge, ringing out]\n\n[Outro buffer | repeat closing verse | softer, fading to silence]\nهَا إِنَّ ذِي عِذْرَةٌ إِلَّا تَكُنْ نَفَعَتْ\nفَإِنَّ صَاحِبَهَا مُشَارِكُ النَّكَدِ...",
+      "tracks": {
+        "A": {
+          "clip_id": "0d77221f-07f7-4d6f-aae4-90c93bdc5122",
+          "original_title": "القسم 6 — ختام: تشبيه الفرات والثناء (مقام عجم)",
+          "assigned_filename": "القسم 6  ختام تشبيه الفرات والثناء مقام عجم_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَمَا الْفُرَاتُ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", clear male vocal, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:05:13.558Z",
+          "downloaded_at": "2026-07-18 13:41:42"
+        },
+        "B": {
+          "clip_id": "aefedb31-99d5-4638-9310-bfa1e1bcc966",
+          "original_title": "القسم 6 — ختام: تشبيه الفرات والثناء (مقام عجم)",
+          "assigned_filename": "القسم 6  ختام تشبيه الفرات والثناء مقام عجم_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَمَا الْفُرَاتُ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\", clear male vocal, Oud, Qanun, Darbuka, Tabla, Ney, Buzuq, Sitar, Khaliji, female vocals, fast tempo, upbeat, speed metal, punk, muddy mix, muffled vocals, distant vocals, washed out, wall of sound, synth pads, extreme panning, autotune, growling",
+          "lyrics": "[lyrics in track details]",
+          "created_at": "2026-07-18T09:05:13.558Z",
+          "downloaded_at": "2026-07-18 13:41:38"
+        }
+      },
+      "tags": [
+        {
+          "id": "6_1",
+          "tag": "[Verse 1 | forward clear vocals]",
+          "expected": "واضحة أمامية",
+          "type": "vocals"
+        },
+        {
+          "id": "6_2",
+          "tag": "[Verse 2 | vocals triumphant]",
+          "expected": "تحول حقيقي للأعلى — هل حس انتصار ولا صار صراخ؟",
+          "type": "vocals"
+        },
+        {
+          "id": "6_3",
+          "tag": "[Final Chorus | vocals cutting through] + [guitars & strings surge, ringing out]",
+          "expected": "الذروة الفعلية الوحيدة بالقسم — أقوى نقطة بكامل الأغنية؟",
+          "type": "instruments"
+        },
+        {
+          "id": "6_4",
+          "tag": "[Outro buffer | ... fading to silence]",
+          "expected": "ختام كامل الأغنية — هل حس كخاتمة مُرضية؟",
+          "type": "vocals"
+        }
+      ]
+    }
+  ]
+}
