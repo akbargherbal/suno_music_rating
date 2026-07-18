@@ -75,7 +75,7 @@ describe('SummaryDashboard - summary table', () => {
     renderDashboard();
     expect(document.getElementById('summary-row-1')).toBeInTheDocument();
     expect(document.getElementById('summary-row-2')).toBeInTheDocument();
-    expect(screen.getByText('القسم الأول — فاتحة')).toBeInTheDocument();
+    expect(screen.getByText('الجمع والتقييم — فاتحة')).toBeInTheDocument();
   });
 });
 
