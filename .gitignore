@@ -14,3 +14,5 @@ backend/__pycache__/
 backend/projects/*/evaluations.json
 backend/projects/*/audio/*
 !backend/projects/*/audio/.gitkeep
+
+projects
