@@ -1,0 +1,4 @@
+/content/suno_music_rating/README.md
+/content/suno_music_rating/backend/requirements.txt
+/content/suno_music_rating/docs/Evaluation_Schema_Guide.md
+/content/suno_music_rating/frontend/index.html
