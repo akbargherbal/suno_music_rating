@@ -55,9 +55,10 @@ export default function SectionEvaluator({
   sectionCount,
 }: SectionEvaluatorProps) {
   const [showMetadata, setShowMetadata] = useState(false);
-  const [syncTime, setSyncTime] = useState(true);
+  const [syncTime, setSyncTime] = useState(false);
   const [lastTimeA, setLastTimeA] = useState<number>(0);
   const [lastTimeB, setLastTimeB] = useState<number>(0);
+  const [showLegend, setShowLegend] = useState(false);
 
   const updateEvaluationField = <K extends keyof SectionEvaluation>(
     field: K,
@@ -203,7 +204,7 @@ export default function SectionEvaluator({
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden mt-3 space-y-3"
                 >
-                  <div className="p-3 bg-paper-sunk border border-line rounded-lg font-latin text-xs text-ink-soft max-h-[220px] overflow-y-auto space-y-2">
+                  <div className="p-3 bg-paper-sunk border border-line rounded-lg font-latin text-xs text-ink-soft max-h-[220px] overflow-y-auto space-y-2 text-left" dir="ltr">
                     {section.tracks.A.styles && (
                       <div>
                         <span className="text-gold-deep font-bold block mb-1">البرومبت المشترك:</span>
@@ -366,23 +367,51 @@ export default function SectionEvaluator({
       {/* Tags Evaluation Sheet — driven by section.tags + project.tagTypes + project.ratingScale */}
       {section.tags.length > 0 && (
         <div className="bg-paper-raised border border-line rounded-2xl overflow-hidden">
-          <div className="p-6 border-b border-line">
-            <h3 className="font-display text-[19px] text-ink font-bold">تقييم تاقات الأقسام</h3>
-            <p className="text-[13px] text-ink-soft mt-1">قيّم أداء كل عنصر لكل نسخة وفق مقياس التقييم المعتمد.</p>
-          </div>
-
-          {/* Legend, generated from project.tagTypes */}
-          <div className="flex flex-wrap items-center gap-4 bg-paper-sunk p-3 border-b border-line text-xs">
-            {Object.entries(project.tagTypes).map(([typeKey, typeDef]) => (
-              <div key={typeKey} className="flex items-center gap-2">
-                <span className="font-bold text-ink-soft">{typeDef.label}:</span>
-                {ratingOptions.map((opt) => (
-                  <span key={opt.value} className="text-ink-soft">
-                    {opt.icon} {typeDef.ratingLabels[opt.value] || opt.value}
-                  </span>
-                ))}
+          <div className="p-6 border-b border-line relative">
+            <div className="flex items-start justify-between gap-4 flex-wrap">
+              <div>
+                <h3 className="font-display text-[19px] text-ink font-bold">تقييم تاقات الأقسام</h3>
+                <p className="text-[13px] text-ink-soft mt-1">قيّم أداء كل عنصر لكل نسخة وفق مقياس التقييم المعتمد.</p>
               </div>
-            ))}
+              <button
+                type="button"
+                onClick={() => setShowLegend((v) => !v)}
+                aria-expanded={showLegend}
+                className="flex items-center gap-1.5 text-[11px] font-bold text-ink-soft bg-paper-sunk border border-line rounded-full px-3 py-1.5 hover:text-ink hover:border-gold/50 transition-all shrink-0"
+              >
+                <Info className="w-3.5 h-3.5" />
+                دليل رموز المقياس
+                {showLegend ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+              </button>
+            </div>
+
+            {/* Legend, generated from project.tagTypes — shown on demand as a floating
+                popover instead of a permanently-expanded row, since each rating button
+                already carries its own contextual title/tooltip. */}
+            <AnimatePresence>
+              {showLegend && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  className="absolute left-6 right-6 top-full mt-2 z-20 bg-paper-raised border border-line rounded-xl shadow-lg p-4 space-y-3"
+                >
+                  {Object.entries(project.tagTypes).map(([typeKey, typeDef]) => (
+                    <div
+                      key={typeKey}
+                      className="flex flex-wrap items-center gap-3 text-xs border-b border-line/60 last:border-0 pb-3 last:pb-0"
+                    >
+                      <span className="font-bold text-ink-soft min-w-[190px]">{typeDef.label}:</span>
+                      {ratingOptions.map((opt) => (
+                        <span key={opt.value} className="text-ink-soft">
+                          {opt.icon} {typeDef.ratingLabels[opt.value] || opt.value}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <div>

@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 1,
+  "projectId": "labeed_evaluation_v1",
+  "title": "تقييم أداء موجهات معلقة لبيد بن ربيعة",
+  "subtitle": "التحليل المقارن للجودة الصوتية والأداء النغمي وسلامة النطق الفصيح عبر الأقسام التسعة",
+  "poemTitle": "عَفَتِ الدِّيَارُ مَحَلُّهَا فَمُقَامُهَا",
+  "brandLetter": "ل",
+  "footerNote": "جلسة التقييم والتحليل الصوتي لمعلقة لبيد — تم التنظيم والربط برمجياً بواسطة مساعد الذكاء الاصطناعي",
+  "ratingScale": {
+    "id": "standard_three_tier",
+    "options": [
+      {
+        "value": "RED",
+        "icon": "🔴"
+      },
+      {
+        "value": "YELLOW",
+        "icon": "🟡"
+      },
+      {
+        "value": "GREEN",
+        "icon": "🟢"
+      }
+    ]
+  },
+  "tagTypes": {
+    "vocal_quality": {
+      "label": "جودة وهندسة الصوت (Vocal Mix)",
+      "ratingLabels": {
+        "RED": "تداخل رقمي سيئ، صدى مفرط مغبش، أو ضوضاء تمنع وضوح الكلمات",
+        "YELLOW": "صوت بشري مقبول لكن يفتقد الحضور القريب أو يعاني من كتم جزئي",
+        "GREEN": "هندسة نظيفة، الفوكالز قريبة وواضحة ومتوازنة تماماً مع الآلات"
+      }
+    },
+    "maqam_performance": {
+      "label": "الأداء النغمي والتمثيل المقامي",
+      "ratingLabels": {
+        "RED": "خروج عن نغمة المقام (نشاز) أو انحراف غربي يفسد طابع القصيدة",
+        "YELLOW": "التزام بنوتة المقام مع وجود رتابة أو أداء آلي خالي من العاطفة",
+        "GREEN": "أداء معبر ومتقن يجسد روح المقام المتناسق مع الشدة والدراما"
+      }
+    },
+    "arabic_pronunciation": {
+      "label": "سلامة نطق مخارج الحروف العربية",
+      "ratingLabels": {
+        "RED": "إغفال نطق الحركات والشدّات أو ابتلاع الحروف في الألفاظ الجاهلية",
+        "YELLOW": "نطق فصيح إجمالاً مع تعثر طفيف في المشدد أو المدود الطويلة",
+        "GREEN": "نطق سليم وصحيح 100% لكافة الحركات والشدّات والوقفات الفصحى"
+      }
+    },
+    "rhythm_and_pacing": {
+      "label": "الإيقاع وتزامن الأبحر الشعريّة",
+      "ratingLabels": {
+        "RED": "تسريع عشوائي للأداء أو كسور إيقاعية تعيق متابعة البيت",
+        "YELLOW": "إيقاع مقبول ولكنه ينهمك في استعجال الكلمات عند الفواصل",
+        "GREEN": "تزامن إيقاعي ممتاز وموزون يمنح الشعر نفسه الممتد والمريح"
+      }
+    }
+  },
+  "sectionQuestions": [
+    {
+      "id": "genre_drift",
+      "label": "هل حدث هروب نغمي أو طغيان نمط غربي عشوائي (Genre Drift)؟",
+      "type": "single_choice",
+      "options": [
+        "no",
+        "yes_drift"
+      ],
+      "optionLabels": {
+        "no": "لا، حافظ المسار على هويته النغمية والمقامية المحددة",
+        "yes_drift": "نعم، حدث انحراف مفاجئ نحو نمط موسيقي غربي غريب"
+      },
+      "hasDetails": true,
+      "detailsLabel": "سجل توقيت الانحراف النغمي بالثواني وطبيعته:"
+    },
+    {
+      "id": "vocal_distortion",
+      "label": "هل ظهر تشويه أو ضوضاء رقمية في صوت المغني (Artifacts)؟",
+      "type": "boolean",
+      "options": [
+        "no",
+        "yes"
+      ],
+      "optionLabels": {
+        "no": "لا، الصوت البشري نظيف وواضح",
+        "yes": "نعم، يوجد تشويه رقمي أو خشوشة في الصوت"
+      },
+      "hasDetails": false
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "title": "القسم الأول — الأطلال والوحشة الصامتة",
+      "meta": {
+        "maqam": "حجاز (حزن وأسى)",
+        "rhythm": "بطيء وقار (110 BPM)"
+      },
+      "description": "افتتاحية المعلقة بالوقوف على الأطلال والديار الخالية بمنى والرّيّان وشجن الذكريات.",
+      "watchpoint": "تأكد من وضوح مخارج الحروف في نطق (فَمُقَامُهَا) و(الرَّيَّانِ) وجودة مدود الفواصل.",
+      "specialQuestion": "هل نجح الأداء النغمي في إبراز شجن مقام الحجاز لافتتاحية الأطلال؟",
+      "lyrics": "عَفَتِ الدِّيَارُ مَحَلُّهَا فَمُقَامُهَا ... بِمِنًى تَأَبَّدَ غَوْلُهَا فَرِجَامُهَا\nفَمَدَافِعُ الرَّيَّانِ عُرِّيَ رَسْمُهَا ... خَلَقًا كَمَا ضَمِنَ الْوُحِيَّ سِلَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "01-الأطلال-والوحشة-الصامتة_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"عَفَتِ الدِّيَارُ مَحَلُّهَا\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Hijaz with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "01-الأطلال-والوحشة-الصامتة_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"عَفَتِ الدِّيَارُ مَحَلُّهَا\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Hijaz with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec1_tag_vocal",
+          "tag": "deep_baritone_clarity",
+          "expected": "بروز صوت المغني الباريتون ووضوحه في المقدمة دون صدى مفرط يغيب الكلمات",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec1_tag_maqam",
+          "tag": "hijaz_atlal_mood",
+          "expected": "تجسيد شجن مقام الحجاز وتوقيره للوقوف على الديار الخالية بدقة",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec1_tag_arabic",
+          "tag": "atlal_diacritics",
+          "expected": "سلامة نطق الضمائر والحركات في كلمتي (فَمُقَامُهَا) و(فَرِجَامُهَا)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "القسم الثاني — الارتحال ومكابدة الفراق",
+      "meta": {
+        "maqam": "نهاوند (حنين وشوق)",
+        "rhythm": "متوسط حزين"
+      },
+      "description": "وصف رحيل الظعائن ونوى الحبيبة (نوار) والتأمل في قطع علائق الوصل.",
+      "watchpoint": "راقب نطق الحروف المشددة في (تَصِرُّ) والتنوين في (عُطَّفًا أَرْآمُهَا).",
+      "specialQuestion": "هل ساهمت نبرة النهايات الحزينة لمقام النهاوند في نقل لوعة ارتحال الظعائن؟",
+      "lyrics": "شَاقَتْكَ ظُعْنُ الْحَيِّ حِينَ تَحَمَّلُوا ... فَتَكَنَّسُوا قُطُنًا تَصِرُّ خِيَامُهَا\nزُجَلًا كَأَنْ نِعَاجَ تُوضِحَ فَوْقَهَا ... وَظِبَاءَ وَجْرَةَ عُطَّفًا أَرْآمُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "02-الارتحال-ومكابدة-الفراق_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"شَاقَتْكَ ظُعْنُ الْحَيِّ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "02-الارتحال-ومكابدة-الفراق_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"شَاقَتْكَ ظُعْنُ الْحَيِّ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec2_tag_vocal",
+          "tag": "reflective_warm_vocal",
+          "expected": "دفء صوت المؤدي في مقام النهاوند دون طغيان الآلات الأوركسترالية عليه",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec2_tag_maqam",
+          "tag": "nahawand_expressiveness",
+          "expected": "التزام سلس بنغمات النهاوند وتطبيق نقلات عاطفية ملائمة لمفهوم الفراق",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec2_tag_arabic",
+          "tag": "shadda_and_tanween",
+          "expected": "سلامة نطق الشدّات والتنوين السليم دون تفكيك غريب للكلمات في (عُطَّفًا)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "القسم الثالث — الرحلة ومكابدة الهجير",
+      "meta": {
+        "maqam": "كرد (توتر ورهبة)",
+        "rhythm": "ثابت وموثوق"
+      },
+      "description": "وصف عناء الناقة ومشقة السفر في الصحراء والتشبيه بظليم الصحراء والأحقب.",
+      "watchpoint": "انتبه لنطق الألفاظ الجاهلية الصعبة مثل (فَأَحْنَقَ) و(الإِكَامِ) بدقة وحذر.",
+      "specialQuestion": "هل نجحت المقطوعة في إبراز توتر مقام الكرد لتمثيل مشقة الصحراء والهجير؟",
+      "lyrics": "بِطَلِيحِ أَسْفَارٍ تَرَكْنَ بَقِيَّةً ... مِنْهَا فَأَحْنَقَ صُلْبُهَا وَسَنَامُهَا\nيَعْلُو بِهَا حَدَبَ الْإِكَامِ مُسَحَّجًا ... قَدْ رَابَهُ عِصْيَانُهَا وَوِحَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "03-الرحلة-ومكابدة-الهجير_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"بِطَلِيحِ أَسْفَارٍ تَرَكْنَ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Kurd with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "03-الرحلة-ومكابدة-الهجير_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"بِطَلِيحِ أَسْفَارٍ تَرَكْنَ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Kurd with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec3_tag_vocal",
+          "tag": "tense_gravelly_delivery",
+          "expected": "نبرة صوت رجولية خشنة وملائمة لطبيعة وصف الرحلة الصحراوية الشاقة",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec3_tag_rhythm",
+          "tag": "steady_desert_pacing",
+          "expected": "حافظ الإيقاع المارش على اتزانه دون تسريع يستعجل نطق الأبيات",
+          "type": "rhythm_and_pacing"
+        },
+        {
+          "id": "sec3_tag_arabic",
+          "tag": "archaic_words_pronunciation",
+          "expected": "وضوح مخارج الكلمات الجاهلية المعقدة (مُسَحَّجًا، فَأَحْنَقَ) كلياً",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "القسم الرابع — ورود الماء وفاجعة الفقد",
+      "meta": {
+        "maqam": "حجاز (فاجعة ولوعة)",
+        "rhythm": "تصاعدي درامي"
+      },
+      "description": "مشهد النزول للماء ثم صورة البقرة الوحشية (الخنساء) وفاجعة فقدها لولدها.",
+      "watchpoint": "انتبه لمط العبارات عند الفواصل ومراعاة الحزن في نطق (تَنَازَعَ شِلْوَهُ).",
+      "specialQuestion": "هل تجسدت الفاجعة الدرامية في الأداء الصوتي والتوزيع عند الحديث عن فقد المهر؟",
+      "lyrics": "فَتَنَازَعَا سَبِطًا يَطِيرُ ظِلَالُهُ ... كَدُخَانِ مِشْعَلَةٍ يُشَبُّ ضِرَامُهَا\nخَنْسَاءُ ضَيَّعَتِ الْفَرِيرَ فَلَمْ يَرِمْ ... عُرْضَ الشَّقَائِقِ طَوْفُهَا وَبُغَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "04-ورود-الماء-وفاجعة-الفقد_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَتَنَازَعَا سَبِطًا يَطِيرُ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Hijaz with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "04-ورود-الماء-وفاجعة-الفقد_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَتَنَازَعَا سَبِطًا يَطِيرُ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Hijaz with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec4_tag_maqam",
+          "tag": "tragic_hijaz_delivery",
+          "expected": "تجسيد الشجن الدرامي والفاجعة بمقام الحجاز دون الصراخ غير المبرر",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec4_tag_vocal",
+          "tag": "sorrowful_vocal_tone",
+          "expected": "نبرة صوت محزونة تعبر عن ضياع الفرير ومطاردة السباع للولد",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec4_tag_arabic",
+          "tag": "al_manaya_pronunciation",
+          "expected": "دقة نطق (إِنَّ الْمَنَايَا لَا تَطِيشُ سِهَامُهَا) بإعراب صحيح ووقوف سليم",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "القسم الخامس — ليلة المطر والتحام الصراع",
+      "meta": {
+        "maqam": "كرد (ترقب وصراع)",
+        "rhythm": "حماسي تصاعدي"
+      },
+      "description": "مشهد الليلة الماطرة الشديدة وهجوم الكلاب والصراع بالقرن للذود عن النفس.",
+      "watchpoint": "راقب سرعة الأداء أثناء هجوم الكلاب والتحقق من عدم بلع حركات الحروف.",
+      "specialQuestion": "هل نجح التوزيع الحماسي الصاخب في تمثيل دراما ليلة المطر والتحام الصراع؟",
+      "lyrics": "بَاتَتْ وَأَسْبَلَ وَاكِفٌ مِنْ دِيمَةٍ ... يُرْوِي الْخَمَائِلَ دَائِمًا تَسْجَامُهَا\nفَتَقَصَّدَتْ مِنْهَا كَسَابِ فَضُرِّجَت ... بِدَمٍ وَغُودِرَ فِي الْمَكَرِّ سُحَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "05-ليلة-المطر-والتحام-الصراع_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"بَاتَتْ وَأَسْبَلَ وَاكِفٌ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Kurd with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "05-ليلة-المطر-والتحام-الصراع_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"بَاتَتْ وَأَسْبَلَ وَاكِفٌ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Kurd with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec5_tag_rhythm",
+          "tag": "battle_pace_alignment",
+          "expected": "تزامن الإيقاع السريع للحرف في مشهد الصراع دون إخلال بوزن البحر",
+          "type": "rhythm_and_pacing"
+        },
+        {
+          "id": "sec5_tag_vocal",
+          "tag": "urgent_action_vocal",
+          "expected": "نبرة صوت حماسية عاجلة تعبر عن الدفاع عن النفس والطعن بالقرن",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec5_tag_arabic",
+          "tag": "kasabi_pronunciation",
+          "expected": "سلامة نطق اسم الكلبة (كَسَابِ) بالبناء على الكسر ودقة حركة (فَضُرِّجَت)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "القسم السادس — فخر الذات وعالم اللذة",
+      "meta": {
+        "maqam": "عجم (زهو وانتصار)",
+        "rhythm": "حاشد ومبتهج"
+      },
+      "description": "التحول الدرامي الكبير نحو الفخر بالذات، مجالس اللهو، شراء الخمر وتوقير النفس.",
+      "watchpoint": "انتبه لنطق الألفات واللامات المشددة في (اللَّوَامِعُ) وكلمة (السَّبَاءَ).",
+      "specialQuestion": "هل نجح المغني في إظهار نبرة الخيلاء والاعتزاز بالنفس بمقام العجم؟",
+      "lyrics": "فَبِتِلْكَ إِذْ رَقَصَ اللَّوَامِعُ بِالضُّحَى ... واجْتَابَ أَرْدِيَةَ السَّرَابِ إِكَامُهَا\nأُغْلِي السَّبَاءَ بِكُلِّ أَدْكَنَ عَاتِقٍ ... أَوْ جَوْنَةٍ قُدِحَتْ وَفُضَّ خِتَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "06-فخر-الذات-وعالم-اللذة_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَبِتِلْكَ إِذْ رَقَصَ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "06-فخر-الذات-وعالم-اللذة_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"فَبِتِلْكَ إِذْ رَقَصَ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec6_tag_maqam",
+          "tag": "ajam_triumphant_delivery",
+          "expected": "بروز طابع مقام العجم المباشر المعبّر عن الفخر والبهجة والزهو",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec6_tag_vocal",
+          "tag": "triumphant_vocal_authority",
+          "expected": "نبرة صوت رجولية واثقة تعكس الاعتزاز بالفخر الفردي للشاعِر",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec6_tag_arabic",
+          "tag": "lam_shadda_and_hamza",
+          "expected": "سلامة نطق اللام المشددة في (اللَّوَامِعُ) والهمزات في (أَرْدِيَةَ) و(السَّبَاءَ)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "القسم السابع — حماسة الفروسية وحراسة الحي",
+      "meta": {
+        "maqam": "عجم (حماسة وفروسية)",
+        "rhythm": "مارش وقار"
+      },
+      "description": "الفخر بالفروسية وحماية الديار في الأيام الصعبة الغبراء وتحمل الجراح.",
+      "watchpoint": "انتبه لنطق تركيب (فُرُطٌ وِشَاحِي) وعدم الابتلاع الإيقاعي للكلمات.",
+      "specialQuestion": "هل كان التوزيع الأوركسترالي قادراً على دعم طابع البطولة والفروسية؟",
+      "lyrics": "وَغَدَاةِ رِيحٍ قَدْ كَشَفْتُ وَقِرَّةٍ ... إِذْ أَصْبَحَتْ بِيَدِ الشَّمَالِ زِمَامُهَا\nوَلَقَدْ حَمَيْتُ الْحَيَّ تَحْمِلُ شِكَّتِي ... فُرُطٌ وِشَاحِي إِذْ غَدَوْتُ لِجَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "07-حماسة-الفروسية-وحراسة-الحي_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"وَغَدَاةِ رِيحٍ قَدْ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "07-حماسة-الفروسية-وحراسة-الحي_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"وَغَدَاةِ رِيحٍ قَدْ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec7_tag_vocal",
+          "tag": "bold_chivalric_vocal",
+          "expected": "صوت قوي يجسد حماسة الفارس الشجاع المدافع عن حمى قومه",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec7_tag_rhythm",
+          "tag": "stately_march_groove",
+          "expected": "وضوح رتم المارش الموسيقي القوي الذي يواكب خطوات الجواد والقتال",
+          "type": "rhythm_and_pacing"
+        },
+        {
+          "id": "sec7_tag_arabic",
+          "tag": "shikkati_and_likamuha",
+          "expected": "نطق سليم لشدة الكسر في (شِكَّتِي) والتنوين والوقف في (فُرُطٌ)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "القسم الثامن — وجاهة المروءة وجود الشتاء",
+      "meta": {
+        "maqam": "نهاوند (وقار وكرم)",
+        "rhythm": "رزين وهادئ"
+      },
+      "description": "الفخر الجاهلي بالمروءة والكرم، نحر الإبل للضيوف، وإطعام الأيتام وقت المحل والشتاء.",
+      "watchpoint": "انتبه للوقوف الصحيح في (غُرَبَاؤُهَا) و(مَجْهُولَةٍ) وعدم تسكين الحركات خطأ.",
+      "specialQuestion": "هل تجسد الوقار والنبل العالي المطلوب لصفات الجود والمروءة؟",
+      "lyrics": "وَكَثِيرَةٍ غُرَبَاؤُهَا مَجْهُولَةٍ ... تُرْجَى نَوَافِلُهَا وَيُخْشَى ذَامُهَا\nوَيُكَلِّلُونَ إِذَا الرِّيَاحُ تَنَاوَحَتْ ... خُلُجًا تُمَدُّ شَوَارِعًا أَيْتَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "08-وجاهة-المروءة-وجود-الشتاء_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"وَكَثِيرَةٍ غُرَبَاؤُهَا مَجْهُولَةٍ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "08-وجاهة-المروءة-وجود-الشتاء_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"وَكَثِيرَةٍ غُرَبَاؤُهَا مَجْهُولَةٍ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Nahawand with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec8_tag_vocal",
+          "tag": "dignified_noble_delivery",
+          "expected": "أداء صوتي وقور ودافئ يعكس أصالة الجود والمروءة والرفعة",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec8_tag_maqam",
+          "tag": "nahawand_noble_feel",
+          "expected": "استخدام نوتات مقام النهاوند الهادئة لإعطاء إحساس بالمروءة والسخاء",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec8_tag_arabic",
+          "tag": "plural_tanween_clarity",
+          "expected": "دقة إعراب ونطق (مَجْهُولَةٍ) و(غُرَبَاؤُهَا) و(الرِّيَاحُ تَنَاوَحَتْ)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "القسم التاسع — المجد الجماعي وسنة الآباء",
+      "meta": {
+        "maqam": "عجم (جلال وفخر ختامي)",
+        "rhythm": "مهيب أوركسترالي"
+      },
+      "description": "خاتمة المعلقة الملحمية بالافتخار ببيت المجد الرفيع، سنة الآباء، وحماية الجماعة.",
+      "watchpoint": "التأكد من الأداء الأوركسترالي المهيب والنطق السليم في (الْمَجَامِعُ) و(جَشَّامُهَا).",
+      "specialQuestion": "هل نجح هذا المسار في تحقيق ذروة الختام الملحمي الجليل المعبر عن مجد القبيلة؟",
+      "lyrics": "إِنَّا إِذَا الْتَقَتِ الْمَجَامِعُ لَمْ يَزَلْ ... مِنَّا لِزَازُ عَظِيمَةٍ جَشَّامُهَا\nفَبَنَوْا لَنَا بَيْتًا رَفِيعًا سَمْكُهُ ... فَسَمَا إِلَيْهِ كَهْلُهَا وَغُلَامُهَا",
+      "tracks": {
+        "A": {
+          "assigned_filename": "09-المجد-الجماعي-وسنة-الآباء_SONG_A.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"إِنَّا إِذَا الْتَقَتِ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        },
+        "B": {
+          "assigned_filename": "09-المجد-الجماعي-وسنة-الآباء_SONG_B.mp3",
+          "styles": "[Is_MAX_MODE: MAX](MAX) [QUALITY: MAX](MAX) [REALISM: MAX](MAX)\n[START_ON: TRUE]\n[START_ON: \"إِنَّا إِذَا الْتَقَتِ\"]\n\ngenre: \"Symphonic cinematic orchestral ballad, hymn-like grand concert hall acoustics, heavy rock instrumentation, stately groove, 110 BPM.\"\nvocals: \"Male deep baritone, mixed-voice chest-head resonance blend on sustained notes, breath-supported melismatic runs, controlled vibrato, commanding presence without forcing, precise Arabic diction, melismatic phrasing in Maqam Ajam with unhurried phrase-ending sustains.\"\nproduction: \"Audiophile recording, punchy centered mix, forward vocals pulling instrumentation down on sustained phrases then band re-enters between lines, bright presence, clean transients, large dynamic range, natural breath room between phrases.\"\ninstrumentation: \"Distorted electric guitars, orchestral strings, weighted acoustic rock drums, tight rhythm section.\""
+        }
+      },
+      "tags": [
+        {
+          "id": "sec9_tag_vocal",
+          "tag": "grand_hymn_presence",
+          "expected": "صوت نشيدي مهيب وقوي يلائم المجد الجماعي المرتفع دون إجهاد صوتب",
+          "type": "vocal_quality"
+        },
+        {
+          "id": "sec9_tag_maqam",
+          "tag": "ajam_grand_climax",
+          "expected": "ذروة مقام العجم الحاشدة والجليلة في ختام المعلقة",
+          "type": "maqam_performance"
+        },
+        {
+          "id": "sec9_tag_arabic",
+          "tag": "final_majamie_diction",
+          "expected": "سلامة 100% لنطق مخارج الحروف والمدود في (الْمَجَامِعُ، جَشَّامُهَا، سَمْكُهُ)",
+          "type": "arabic_pronunciation"
+        }
+      ]
+    }
+  ]
+}
